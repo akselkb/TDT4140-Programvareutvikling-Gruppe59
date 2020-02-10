@@ -1,16 +1,18 @@
+.DS_Store
+
 # Byte-compiled / optimized / DLL files
-__pycache__/
+__pycache__
 *.py[cod]
 *$py.class
-
-# C extensions
-*.so
+*~
 
 # Django stuff:
-*.log
-local_settings.py
+/static
 db.sqlite3
-db.sqlite3-journal
 
-# PyCharm user-specific stuff
-.idea/
+# PyCharm settings
+/.idea
+
+*.pyc
+
+
