@@ -3,35 +3,23 @@
 
 {% block content %}
   <div class="container-fluid">
-      <div class="card mb-3">
-          <div class="card-body">
-              <ul class="list-unstyled">
-                  {% for activity in activities %}
-                    <li class="media align-items-center">
-                    <img src="{% static "images/sit_logo.png" %}" style="height: 10vw" class="mr-3 rounded image-container"/>
-                      <div class="d-flex flex-column justify-content-between flex-sm-row flex-grow-1 w-100">
-                        <div class="d-flex align-items-center">
-                          <div>
-                            <h5 class="mt-0 font-weight-bold text-truncate text-wrap"
-                                title="{{ activity.title }}">{{ activity.title }}</h5>
-                              <p class="text-muted">{{ activity.date_from }}</p>
-                              <p class="text-wrap">{{ activity.text|linebreaksbr }}</p>
-                              <a href="#" class="btn btn-primary bottom">Meld på</a>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                      {% if not forloop.last %}
-                          <hr class="my-3"/>
-                      {% endif %}
-                  {% endfor %}
-                </ul>
-          </div>
+      <div class="list-group">
+          {% for activity in activities %}
+              <div class="list-group-item mb-3 d-flex flex-row">
+                  <div class="">
+                      <img src="{% static "images/sit_logo.png" %}" style="height: 10vw" class="mr-3 rounded image-container"/>
+                  </div>
+                  <div class="d-flex flex-column w-100 ">
+                      <a href="#"><h4 class="mb-1">{{ activity.title }}</h4></a>
+                      <small class="text-muted mb-2">{{ activity.date_from }}</small>
+                      <p class="mb-2 text-truncate">{{ activity.text|linebreaksbr }}</p>
+                  </div>
+                  <div class="d-flex flex-column">
+                      <a href="#" class="btn btn-primary mt-auto">Meld på</a>
+                  </div>
+
+              </div>
+          {% endfor %}
       </div>
   </div>
 {% endblock content %}
-
-
-
-
-
