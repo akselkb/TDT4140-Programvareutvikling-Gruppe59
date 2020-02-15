@@ -4,4 +4,4 @@ from django.http import HttpResponse
 
 # Create your views here.
 def view_login(request):
-    return HttpResponse("Login page!")
+    return render(request, 'usermanagement/login_page.html')
