@@ -3,19 +3,35 @@
 
 {% block content %}
   <div class="container-fluid">
-      <div class="card-deck">
-          {% for activity in activities %}
-              <div class="card mb-3">
-                  <img src="{% static "images/sit_logo.png" %}" class="card-img-top" alt="{{ activity.title }} ">
-                  <div class="card-body">
-                      <h5 class="card-title"><a href="">{{ activity.title }}</a></h5>
-                      <p class="card-text text-muted">Når: {{ activity.date_from }}</p>
-                      <p class="card-text">{{ activity.text|linebreaksbr }}</p>
-                      <a href="#" class="btn btn-primary card-bottom">Meld på</a>
-                  </div>
-              </div>
-          {% endfor %}
+      <div class="card mb-3">
+          <div class="card-body">
+              <ul class="list-unstyled">
+                  {% for activity in activities %}
+                    <li class="media align-items-center">
+                    <img src="{% static "images/sit_logo.png" %}" style="height: 10vw" class="mr-3 rounded image-container"/>
+                      <div class="d-flex flex-column justify-content-between flex-sm-row flex-grow-1 w-100">
+                        <div class="d-flex align-items-center">
+                          <div>
+                            <h5 class="mt-0 font-weight-bold text-truncate text-wrap"
+                                title="{{ activity.title }}">{{ activity.title }}</h5>
+                              <p class="text-muted">{{ activity.date_from }}</p>
+                              <p class="text-wrap">{{ activity.text|linebreaksbr }}</p>
+                              <a href="#" class="btn btn-primary bottom">Meld på</a>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                      {% if not forloop.last %}
+                          <hr class="my-3"/>
+                      {% endif %}
+                  {% endfor %}
+                </ul>
+          </div>
       </div>
   </div>
 {% endblock content %}
+
+
+
+
 
