@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 from django.contrib.auth import authenticate, login, logout
@@ -21,4 +21,5 @@ def view_login(request):
 
 def view_logout(request):
     logout(request)
-    return render(request, 'usermanagement/login_page.html')
+    response = redirect('/login/')
+    return response

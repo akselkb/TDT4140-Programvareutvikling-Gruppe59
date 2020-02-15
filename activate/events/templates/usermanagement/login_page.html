@@ -16,6 +16,7 @@
     </form>
     {% if user.is_authenticated %}
         <p>Du er logget inn!</p>
+        <a href="{% url 'view_logout' %}">Logg ut!</a>
     {% else %}
         <p>Du er ikke logget inn!</p>
     {% endif %}
