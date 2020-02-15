@@ -14,4 +14,9 @@
         </div>
         <input type="submit" class="btn btn-primary" value="Logg Inn">
     </form>
+    {% if user.is_authenticated %}
+        <p>Du er logget inn!</p>
+    {% else %}
+        <p>Du er ikke logget inn!</p>
+    {% endif %}
 {% endblock content %}
