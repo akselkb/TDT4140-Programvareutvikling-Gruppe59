@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 
 # Create your views here.
@@ -16,4 +16,9 @@ def view_login(request):
         if user is not None and user.is_active:
             login(request, user)
 
+    return render(request, 'usermanagement/login_page.html')
+
+
+def view_logout(request):
+    logout(request)
     return render(request, 'usermanagement/login_page.html')
