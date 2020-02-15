@@ -7,11 +7,10 @@ __pycache__
 *~
 
 # Django stuff:
-/static
 db.sqlite3
 
 # PyCharm settings
-/.idea
+.idea/
 
 *.pyc
 
