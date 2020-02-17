@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
+from django.http import HttpResponse
 
 
 # Create your views here.
@@ -26,7 +27,7 @@ def view_logout(request):
 
 def view_signup(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.Post)
+        form = UserCreationForm(request.POST)
         if form.is_valid():
             # Create user
             form.save()
@@ -38,8 +39,8 @@ def view_signup(request):
             user = authenticate(username=username, password=raw_password)
             # Securely log in the user
             login(request, user)
-            return redirect('login_page.html')
+            return redirect('/login/')
     else:
         form = UserCreationForm()
 
-    return render(request, 'signup.html', {'form': form})
+    return render(request, 'usermanagement/signup.html', {'form': form})
