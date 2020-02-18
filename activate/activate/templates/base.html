@@ -10,6 +10,7 @@
             <h1><a href="/">Activate</a></h1>
             <h1><a href="../login/">Login</a></h1> <!-- Temporary access to the login-page -->
             <h1><a href="../signup/">Signup</a></h1> <!-- Temporary access to the signup-page -->
+            {% if not user.is_anonymous %}<h1><a href="../create/">Create Activity</a></h1>{% endif %} <!-- Temporary access to the create-activity-page -->
         </div>
         <div class="content container">
             <div class="row">
