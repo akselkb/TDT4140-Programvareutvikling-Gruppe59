@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.utils import timezone
+
+from events.forms import CreateActivityForm
 from .models import Activity
 
 
@@ -9,4 +10,5 @@ def activity_list(request):
 
 
 def create_activity(request):
-    return render(request, 'events/activity_create.html')
+    form = CreateActivityForm()
+    return render(request, 'events/activity_create.html', {'form': form})
