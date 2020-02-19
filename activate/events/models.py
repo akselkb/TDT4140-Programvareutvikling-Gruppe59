@@ -16,6 +16,8 @@ class Activity(models.Model):
     date_from = models.DateTimeField(verbose_name="fra dato")
     date_to = models.DateTimeField(verbose_name="til dato")
 
+    gear = models.CharField(max_length=200, verbose_name="utstyr", default='')
+
     # registered_users = models.ManyToManyField(User, blank=True, verbose_name='påmeldte brukere')
 
     def __str__(self):
