@@ -27,3 +27,8 @@ def create_activity(request):
         form = CreateActivityForm()
 
     return render(request, 'events/activity_create.html', {'form': form})
+
+
+def activity_detail_view(request,index):
+    activity_current = Activity.objects.get(index)
+    return render(request, '', {'activity_current': activity_current})
