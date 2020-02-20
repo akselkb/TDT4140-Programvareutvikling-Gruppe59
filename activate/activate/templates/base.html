@@ -6,12 +6,14 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
     <body>
-        <div class="page-header">
-            <h1><a href="/">Activate</a></h1>
-            <h1><a href="../login/">Login</a></h1> <!-- Temporary access to the login-page -->
-            <h1><a href="../signup/">Signup</a></h1> <!-- Temporary access to the signup-page -->
-            {% if not user.is_anonymous %}<h1><a href="../create/">Create Activity</a></h1>{% endif %} <!-- Temporary access to the create-activity-page -->
-        </div>
+        <nav class="navbar navbar-light navbar-expand-lg bg-light d-flex">
+            <a class="navbar-brand" href="#">Activate</a>
+            {% if not user.is_anonymous %}<a href="{% url 'create_activity' %}">Create Activity</a>{% endif %} <!-- Temporary access to the create-activity-page -->
+            <div class="ml-auto">
+                <a class="btn btn-link" href="{% url 'view_login' %}">Login</a>
+                <a class="btn btn-primary" href="{% url 'view_signup' %}">Signup</a>
+            </div>
+        </nav>
         <div class="content container">
             <div class="row">
                 <div class="col-md-8">
