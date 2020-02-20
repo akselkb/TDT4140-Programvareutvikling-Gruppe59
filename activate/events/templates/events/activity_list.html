@@ -10,7 +10,7 @@
                       <img src="{% static "images/sit_logo.png" %}" style="height: 10vw" class="mr-3 rounded image-container"/>
                   </div>
                   <div class="d-flex flex-column w-100 ">
-                      <a href="#"><h4 class="mb-1">{{ activity.title }}</h4></a>
+                      <a href="{{ activity.id }}/"><h4 class="mb-1">{{ activity.title }}</h4></a>
                       <small class="text-muted mb-2">{{ activity.date_from }}</small>
                       <p class="mb-2 text-truncate">{{ activity.text|linebreaksbr }}</p>
                   </div>
