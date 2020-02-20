@@ -29,6 +29,6 @@ def create_activity(request):
     return render(request, 'events/activity_create.html', {'form': form})
 
 
-def activity_detail_view(request,index):
-    activity_current = Activity.objects.get(index)
-    return render(request, '', {'activity_current': activity_current})
+def activity_detail_view(request, id):
+    activity = Activity.objects.get(id=id)    # Gets right activity
+    return render(request, 'events/activity_detail_view.html', {'activity': activity})
