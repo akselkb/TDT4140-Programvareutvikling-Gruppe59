@@ -45,3 +45,7 @@ def view_signup(request):
         form = SignUpForm()
 
     return render(request, 'usermanagement/signup.html', {'form': form})
+
+
+def view_profile(request):
+    return render(request, 'usermanagement/profile.html')
