@@ -47,6 +47,5 @@ def view_signup(request):
 
 
 @login_required
-
 def view_profile(request):
     return render(request, 'usermanagement/profile.html')
