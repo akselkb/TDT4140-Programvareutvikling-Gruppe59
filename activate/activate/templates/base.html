@@ -10,8 +10,13 @@
             <a class="navbar-brand" href="#">Activate</a>
             {% if not user.is_anonymous %}<a href="{% url 'create_activity' %}">Create Activity</a>{% endif %} <!-- Temporary access to the create-activity-page -->
             <div class="ml-auto">
-                <a class="btn btn-link" href="{% url 'view_login' %}">Login</a>
-                <a class="btn btn-primary" href="{% url 'view_signup' %}">Signup</a>
+                {% if not user.is_authenticated %}
+                    <a class="btn btn-link" href="{% url 'view_login' %}">Login</a>
+                    <a class="btn btn-primary" href="{% url 'view_signup' %}">Signup</a>
+                {% else %}
+                    <a class="btn btn-link" href="{% url 'view_logout' %}">Logg ut</a>
+                    <a class="btn btn-primary" href="{% url 'view_profile' %}">Min profil</a>
+                {% endif %}
             </div>
         </nav>
         <div class="content container">
