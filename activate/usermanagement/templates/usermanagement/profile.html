@@ -2,5 +2,17 @@
 {% load static %}
 
 {% block content %}
-    <h1>{{ user.username }}</h1>
+<div class="content pt-5", align="center">
+     <div class="card" style="width: 256px; height: auto">
+         <img class="card-img-top" src="https://cdn4.iconfinder.com/data/icons/basic-user-interface-2/512/User_Interface-10-512.png" alt="Card image cap" style="width: 128px; height: 128px; align-self: center;">
+         <div class="card-body">
+             <h4 class="card-title">{{ user.username }}</h4>
+             <p class="card-text">
+                 {{ user.first_name }} {{ user.last_name }}
+                 {{ user.email }}
+            </p>
+             <a href="#" class="btn btn-primary">Endre profil</a>
+        </div>
+     </div>
+</div>
 {% endblock content %}
