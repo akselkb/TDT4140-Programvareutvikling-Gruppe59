@@ -6,34 +6,29 @@ import datetime
 
 
 class SignUpForm(UserCreationForm):
-    first_name = forms.CharField(max_length=30, required=False, help_text='Valgfri.')
-    last_name = forms.CharField(max_length=30, required=False, help_text='Valgfri.')
-    birth_date = forms.DateField(label='Fødselsdato',
-                                 widget=forms.SelectDateWidget
-                                 (years=[x for x in range(1970, datetime.datetime.now().year)]),
-                                 required=False, help_text='Valgfri.')
-    email = forms.EmailField(max_length=254, help_text='Påkrevet. Skriv inn en gyldig email-adresse.')
+    email = forms.EmailField(max_length=254, required=True, help_text='Påkrevet. Skriv inn en gyldig email-adresse.')
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'birth_date', 'email', 'password1', 'password2',)
+        fields = ('username', 'email', 'password1', 'password2',)
 
 
 class UserUpdateForm(forms.ModelForm):
-    first_name = forms.CharField(max_length=30, required=False, help_text='Valgfri.')
-    last_name = forms.CharField(max_length=30, required=False, help_text='Valgfri.')
-    birth_date = forms.DateField(label='Fødselsdato',
-                                 widget=forms.SelectDateWidget
-                                 (years=[x for x in range(1970, datetime.datetime.now().year)]),
-                                 required=False, help_text='Valgfri.')
     email = forms.EmailField(max_length=254, help_text='Påkrevet. Skriv inn en gyldig email-adresse.')
 
     class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name', 'birth_date', 'email']
+        fields = ['username', 'email']
 
 
 class ProfileUpdateForm(forms.ModelForm):
+    first_name = forms.CharField(max_length=30, help_text='Valgfri.')
+    last_name = forms.CharField(max_length=30, help_text='Valgfri.')
+    birth_date = forms.DateField(label='Fødselsdato',
+                                 widget=forms.SelectDateWidget
+                                 (years=[x for x in range(1970, datetime.datetime.now().year+1)]),
+                                 help_text='Valgfri.')
+
     class Meta:
         model = Profile
-        fields = []
+        fields = ['first_name', 'last_name', 'birth_date']
