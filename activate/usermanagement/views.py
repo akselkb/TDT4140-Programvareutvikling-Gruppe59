@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from .forms import SignUpForm
+from .forms import SignUpForm, UserUpdateForm, ProfileUpdateForm
 
 
 # Create your views here.
@@ -48,4 +48,14 @@ def view_signup(request):
 
 @login_required
 def view_profile(request):
+    u_form = UserUpdateForm()
+    p_form = ProfileUpdateForm()
+
+    context = {
+        'u_form': u_form,
+        'p_form': p_form
+    }
+
     return render(request, 'usermanagement/profile.html')
+
+
