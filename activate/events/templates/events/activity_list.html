@@ -17,11 +17,14 @@
                           <div class="col">Antall plasser: {{ activity.max_participants }}</div>
                       </div>
                   </div>
+
+                  <!--Får ikke denne referansen til å virke -->
+                  <script type="text/javascript" src="59/activate/events/templates/events/button_confirmation.js"> </script>
+
                   <div class="d-flex flex-column">
-                      <!--<a type="submit" href="#" class="btn btn-primary mt-auto"> Meld på </a> -->
                       <button type="button" class="btn btn-primary mt-auto" onclick="return clicked();">Meld på</button>
                   </div>
-                  <script> scr="button_confirmation.js" </script>
+                  <!-- Midlertidig script for button reaction -->
                   <script>
                   function clicked() {
                       if (confirm('Bekreft at du ønsker å bli meldt på')) {
