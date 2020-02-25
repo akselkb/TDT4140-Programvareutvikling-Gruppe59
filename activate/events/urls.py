@@ -6,5 +6,5 @@ urlpatterns = [
     path('', views.activity_list, name='activity_list'),
     path('create/', views.create_activity, name='create_activity'),
     path('<int:id>/', views.activity_detail_view, name='activity_detail_view'),
-    #url(r'^register/(\d+)/$', views.register, name='register'),
+    url(r'^register/(\d+)/$', views.register, name='register'),
 ]
