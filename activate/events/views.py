@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect
-
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
 from events.forms import CreateActivityForm
 from .models import Activity
 
@@ -28,7 +28,15 @@ def create_activity(request):
 
     return render(request, 'events/activity_create.html', {'form': form})
 
-
 def activity_detail_view(request, id):
     activity = Activity.objects.get(id=id)    # Gets right activity
     return render(request, 'events/activity_detail_view.html', {'activity': activity})
+
+def register_user_to_activity(request, id):
+
+    activity = get_object_or_404(Activity, pk=activity_id)
+
+    activity.registered_users.add(request.user.id)
+    messages.info(request, u'Du er nå meldt på %s.' % activity.title)
+
+    return redirect('event:show', event_id=even_id)
