@@ -24,19 +24,19 @@
                   <div class="d-flex flex-column">
                       <!-- <button type="button" class="btn btn-primary mt-auto" onclick="return clicked();">Meld på</button> -->
                       {% if user in activity.registered_users.all %}
-                          <a href="#" title="Meld Av" class="btn btn-danger mt-1" onclick="">Meld deg av</a>
+                          <a href="#" title="Meld Av" class="btn btn-danger mt-1">Meld deg av</a>
                       {% else %}
-                          <a href="{% url 'register' activity.id %}" title="Meld på" class="btn btn-primary mt-1" onclick="return clicked();">Meld deg på</a>
+                          <a href="{% url 'register' activity.id %}" title="Meld på" class="btn btn-primary mt-1">Meld deg på</a> <!-- onclick="return clicked();" -->
                       {% endif %}
                   </div>
                   <!-- Midlertidig script for button reaction -->
                   <script>
-                  function clicked() {
+                  /*function clicked() {
                       if (confirm('Bekreft at du ønsker å bli meldt på')) {
                           window.alert("Du er påmeldt!");;
                       } else {
                       return false;
-                      }}
+                      }}*/
                   </script>
               </div>
           {% endfor %}
