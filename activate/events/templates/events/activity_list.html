@@ -20,7 +20,11 @@
 
                   <div class="d-flex flex-column">
                       <!-- <button type="button" class="btn btn-primary mt-auto" onclick="return clicked();">Meld på</button> -->
-                      <a href="{% url 'events:register' activity.id %}" title="Meld på" class="btn btn-primary mt-1" onclick="return clicked();">Meld deg på</a>
+                     {% if user in activity.registered_users %}
+                        <a href="{% url 'register' activity.id %}" title="Meld på" class="btn btn-primary mt-1" onclick="return clicked();">Meld deg på</a>
+                    {% else %}
+                        <a href="#" title="Meld Av" class="btn btn-danger mt-1" onclick="">Meld deg av</a>
+                    {% endif %}
                   </div>
                   <!-- Midlertidig script for button reaction -->
                   <script>
