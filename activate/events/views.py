@@ -32,11 +32,11 @@ def activity_detail_view(request, id):
     activity = Activity.objects.get(id=id)    # Gets right activity
     return render(request, 'events/activity_detail_view.html', {'activity': activity})
 
-def register_user_to_activity(request, id):
+def register(request, activity_id):
 
-    activity = get_object_or_404(Activity, pk=activity_id)
+    activity = get_object_or_404(Activity, id=activity_id)
 
     activity.registered_users.add(request.user.id)
     messages.info(request, u'Du er nå meldt på %s.' % activity.title)
 
-    return redirect('event:show', event_id=even_id)
+    return redirect('events:show', event_id=activity_id)
