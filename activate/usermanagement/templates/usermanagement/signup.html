@@ -1,9 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
     <form method="POST">
         {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="">Join today!</legend>
+            {{ form|crispy }}
+        </fieldset>
+        <!--
         {% for field in form %}
             <div class="form-group">
                 {{ field.label_tag }}<br>
@@ -16,6 +22,6 @@
                 {% endfor %}
             </div>
         {% endfor %}
-        <input type="submit" class="btn btn-primary" value="Registrer bruker">
+        <input type="submit" class="btn btn-primary" value="Registrer bruker"> -->
     </form>
 {% endblock content %}
