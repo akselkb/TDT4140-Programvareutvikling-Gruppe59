@@ -14,11 +14,14 @@
                       <small class="text-muted mb-2">{{ activity.date_from }}</small>
                       <p class="mb-2 text-truncate">{{ activity.text|linebreaksbr }}</p>
                   </div>
+
+                  <!--Får ikke denne referansen til å virke -->
+                  <script type="text/javascript" src="59/activate/events/templates/events/button_confirmation.js"> </script>
+
                   <div class="d-flex flex-column">
-                      <!--<a type="submit" href="#" class="btn btn-primary mt-auto"> Meld på </a> -->
                       <button type="button" class="btn btn-primary mt-auto" onclick="return clicked();">Meld på</button>
                   </div>
-                  <script> scr="button_confirmation.js" </script>
+                  <!-- Midlertidig script for button reaction -->
                   <script>
                   function clicked() {
                       if (confirm('Bekreft at du ønsker å bli meldt på')) {

@@ -1,7 +1,7 @@
 function clicked() {
-       if (confirm('Do you want to submit?')) {
-           window.alert("Du er påmeldt!");;
-       } else {
-           return false;
-       }
+    if (confirm('Bekreft at du ønsker å bli meldt på')) {
+        window.alert("Du er påmeldt!");
     }
+    else {
+        return false;
+    }}
