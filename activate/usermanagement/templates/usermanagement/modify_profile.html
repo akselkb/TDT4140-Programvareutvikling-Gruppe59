@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 <div class="content pt-5", align="center">
@@ -8,17 +9,19 @@
          <div class="card-body">
              <h4 class="card-title">{{ user.username }}</h4>
              <p class="card-text">
-                 {% ifnotequal user.profile.first_name None %}
-                    {{ user.profile.first_name }}
-                 {% endifnotequal %}
-                 {% ifnotequal user.profile.first_name None %}
-                     {{ user.profile.last_name }}<br>
-                 {% endifnotequal %}
-                 {{ user.email }}<br>
-                 {% ifnotequal user.profile.last_name None %}
-                     {{ user.profile.birth_date }}
-                 {% endifnotequal %}
-            </p>
+                 <div>
+                     {% if user.profile.first_name %}
+                         {{ user.profile.first_name }}
+                     {% endif %}
+                     {% if user.profile.last_name %}
+                         {{ user.profile.last_name }}
+                     {% endif %}
+                 </div>
+                 <div>{{ user.email }}</div>
+                 {% if user.profile.birth_date %}
+                     <div>{{ user.profile.birth_date }}</div>
+                 {% endif %}
+             </p>
              <a href="#" class="btn btn-light disabled">Endre profil</a>
         </div>
      </div>
@@ -28,30 +31,8 @@
         {% csrf_token %}
         <fieldset class="form-group">
             <legend class="border-bottom mb-4">Profil-informasjon</legend>
-            {% for field in u_form %}
-                <div class="form-group">
-                    {{ field.label_tag }}<br>
-                    {{ field }}
-                    {% if field.help_text %}
-                        <small style="color: grey">{{ field.help_text }}</small>
-                    {% endif %}
-                    {% for error in field.errors %}
-                        <p style="color: red">{{ error }}</p>
-                    {% endfor %}
-                </div>
-            {% endfor %}
-            {% for field in p_form %}
-                <div class="form-group">
-                    {{ field.label_tag }}<br>
-                    {{ field }}
-                    {% if field.help_text %}
-                        <small style="color: grey">{{ field.help_text }}</small>
-                    {% endif %}
-                    {% for error in field.errors %}
-                        <p style="color: red">{{ error }}</p>
-                    {% endfor %}
-                </div>
-            {% endfor %}
+            {{ u_form|crispy }}
+            {{ p_form|crispy }}
         </fieldset>
         <div class="form-group">
             <button class="btn btn-outline-info" type="submit">Oppdater</button>
