@@ -25,7 +25,7 @@ def view_logout(request):
     return response
 
 
-def view_signup(request):
+def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
@@ -40,12 +40,12 @@ def view_signup(request):
 
 
 @login_required
-def view_profile(request):
+def profile(request):
     return render(request, 'usermanagement/profile.html')
 
 
 @login_required
-def view_modify_profile(request):
+def modify_profile(request):
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, instance=request.user)
         p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
@@ -53,7 +53,7 @@ def view_modify_profile(request):
         if u_form.is_valid() and p_form.is_valid():
             u_form.save()
             p_form.save()
-            return redirect('view_profile')
+            return redirect('profile')
 
     else:
         u_form = UserUpdateForm(instance=request.user)
