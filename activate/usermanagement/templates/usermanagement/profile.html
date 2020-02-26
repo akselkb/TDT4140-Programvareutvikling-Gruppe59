@@ -8,18 +8,20 @@
          <div class="card-body">
              <h4 class="card-title">{{ user.username }}</h4>
              <p class="card-text">
-                 {% ifnotequal user.profile.first_name None %}
-                    {{ user.profile.first_name }}
-                 {% endifnotequal %}
-                 {% ifnotequal user.profile.first_name None %}
-                     {{ user.profile.last_name }}<br>
-                 {% endifnotequal %}
-                 {{ user.email }}<br>
-                 {% ifnotequal user.profile.last_name None %}
-                     {{ user.profile.birth_date }}
-                 {% endifnotequal %}
-            </p>
-             <a href="{% url 'view_modify_profile' %}" class="btn btn-primary">Endre profil</a>
+                 <div>
+                     {% if user.profile.first_name %}
+                         {{ user.profile.first_name }}
+                     {% endif %}
+                     {% if user.profile.last_name %}
+                         {{ user.profile.last_name }}
+                     {% endif %}
+                 </div>
+                 <div>{{ user.email }}</div>
+                 {% if user.profile.birth_date %}
+                     <div>{{ user.profile.birth_date }}</div>
+                 {% endif %}
+             </p>
+             <a href="{% url 'modify_profile' %}" class="btn btn-primary">Endre profil</a>
         </div>
      </div>
 </div>

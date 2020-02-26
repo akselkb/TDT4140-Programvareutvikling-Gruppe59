@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'events.apps.EventsConfig',
     'activate',
-    'usermanagement'
+    'usermanagement',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +125,5 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 LOGIN_URL = 'view_login'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
