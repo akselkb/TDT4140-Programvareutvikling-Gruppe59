@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
 from events.forms import CreateActivityForm
 from .models import Activity
 
@@ -30,7 +32,7 @@ def create_activity(request):
 
 
 def activity_detail_view(request, id):
-    activity = Activity.objects.get(id=id)    # Gets right activity
+    activity = Activity.objects.get(id=id)  # Gets right activity
     return render(request, 'events/activity_detail_view.html', {'activity': activity})
 
 
@@ -42,3 +44,10 @@ def register(request, activity_id):
     messages.info(request, u'Du er nå meldt på %s.' % activity.title)
 
     return redirect('/')
+
+
+@login_required
+def organized_activities_view(request):
+    activities = Activity.objects.filter(responsible=request.user)
+    return render(request, 'events/organized_activity_list.html', {'activities': activities})
+
