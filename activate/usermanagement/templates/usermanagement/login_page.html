@@ -12,12 +12,6 @@
             <label for="password">Password:</label>
             <input type="password" class="form-control" name="password" id="password">
         </div>
-        <input type="submit" class="btn btn-primary" value="Logg Inn">
+        <input type="submit" class="btn btn-primary mt-2 w-100" value="Logg Inn">
     </form>
-    {% if user.is_authenticated %}
-        <p>Du er logget inn!</p>
-        <a href="{% url 'logout' %}">Logg ut!</a>
-    {% else %}
-        <p>Du er ikke logget inn!</p>
-    {% endif %}
 {% endblock content %}

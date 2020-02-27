@@ -3,7 +3,7 @@
 
 {% block content %}
     <section class="d-flex flex-row">
-        <div style="" class="col-md-4 mr-4 ">
+        <div style="" class="col-md-4 mr-2 ">
             <div class="activate-card bg-white shadow">
                 <img src="{% static "images/sit_logo_800.png" %}"  style="width: 100%;" alt="Bilde av aktivitet"/>
                 <div class="p-4">
@@ -34,7 +34,7 @@
                         <br>
                         <div class="font-weight-light">
                             {% if activity.gear|length == 0 or activity.gear is None %}
-                                Ingen utstyr
+                                Ingen utstyr påkrevd.
                             {% else %}
                                 {{ activity.gear }}
                             {% endif %}</div>
