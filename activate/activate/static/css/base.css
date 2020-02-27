@@ -1,3 +1,13 @@
+body {
+    background-color: #fafafa;
+}
+
 .container {
     margin-top: 50px;
+}
+
+.activity {
+    height: 255px;
+    border-radius: 7px;
+    overflow: hidden;
 }

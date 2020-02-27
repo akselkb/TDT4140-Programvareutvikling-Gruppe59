@@ -2,41 +2,11 @@
 {% load static %}
 
 {% block content %}
-  <div class="container-fluid">
-      <div class="list-group">
-          {% for activity in activities %}
-              <div class="list-group-item mb-3 d-flex flex-row">
-                  <div class="">
-                      <img src="{% static "images/sit_logo.png" %}" style="height: 10vw" class="mr-3 rounded image-container"/>
-                  </div>
-                  <div class="d-flex flex-column w-100 ">
-                      <a href="{{ activity.id }}/"><h4 class="mb-1">{{ activity.title }}</h4></a>
-                      <small class="text-muted mb-2">{{ activity.date }}, fra {{ activity.time_from}} til {{ activity.time_to }}.</small>
-                      <p class="mb-2 text-truncate">{{ activity.text|linebreaksbr }}</p>
-                      <div class="row">
-                          <div class="col">Antall plasser: {{ activity.max_participants }}</div>
-                      </div>
-                  </div>
-
-
-                  <div class="d-flex flex-column mt-auto">
-
-                      {% if not user.is_anonymous %}
-                            {% if user in activity.registered_users.all %}
-                                 <a href="#" title="Meld Av" class="btn btn-secondary disabled"
-                                    aria-disabled>Du er påmeldt</a>
-                            {% else %}
-                                <a href="{% url 'register' activity.id %}" title="Meld på" class="btn btn-primary">Meld deg på</a>
-                            {% endif %}
-                      {% else %}
-                            <a href="#" title="Meld På" class="btn btn-primary disabled" role="button"
-                               aria-disabled="true">Logg inn for å melde deg på</a>
-                      {% endif %}
-
-                  </div>
-
-              </div>
-          {% endfor %}
-      </div>
-  </div>
+    <div class="container-fluid">
+        <div class="list-group">
+            {% for activity in activities %}
+                {% include "events/activity_item.html" with activity=activity %}
+            {% endfor %}
+        </div>
+    </div>
 {% endblock content %}

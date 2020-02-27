@@ -1,0 +1,9 @@
+{% if not user.is_anonymous %}
+    {% if user in activity.registered_users.all %}
+         <a href="#" class="btn btn-secondary mt-1 stretched-link" aria-disabled="true">Du er påmeldt</a>
+    {% else %}
+        <a href="{% url 'register' activity.id %}" class="btn btn-primary mt-1 stretched-link">Meld deg på</a>
+    {% endif %}
+{% else %}
+    <a href="{% url 'login' %}" class="btn btn-outline-primary stretched-link" role="button">Logg inn for å melde deg på</a>
+{% endif %}
