@@ -22,8 +22,8 @@
                         <strong>Påmeldte</strong>
                         <br>
                         <div class="font-weight-light">
-                            {% if activity.max_participants == 0 %}
-                                Alle tillatt
+                            {% if activity.max_participants == 0 or activity.max_participants is None %}
+                                {{ activity.registered_users.count }}
                             {% else %}
                                 {{ activity.registered_users.count }} av {{ activity.max_participants }}
                             {% endif %}
@@ -33,7 +33,7 @@
                         <strong>Utstyr</strong>
                         <br>
                         <div class="font-weight-light">
-                            {% if activity.max_participants == 0 %}
+                            {% if activity.gear|length == 0 or activity.gear is None %}
                                 Ingen utstyr
                             {% else %}
                                 {{ activity.gear }}
