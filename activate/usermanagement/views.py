@@ -30,9 +30,10 @@ def signup(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             # Create user
-            form.save()
+            user = form.save()
 
-            return redirect('/login/')
+            login(request, user)
+            return redirect('/')
     else:
         form = SignUpForm()
 
