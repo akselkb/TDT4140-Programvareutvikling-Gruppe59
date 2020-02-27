@@ -5,7 +5,7 @@
 {% block content %}
     <form method="POST">
         {% csrf_token %}
-        <fieldset class="form-grup">
+        <fieldset class="form-group">
             <legend class="border-bottom mb-4">Registrer deg i dag!</legend>
             {{ form|crispy }}
         </fieldset>
