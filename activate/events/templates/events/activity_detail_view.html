@@ -14,7 +14,19 @@
                 <div>
                     <h8 class="font-weight-bold">Utstyr: <h8 class="text-muted mb-2">{{ activity.gear|default:"Ingen utstyr nødvendig"}}</h8></h8>
                 </div>
-                <a href="#" class="btn btn-primary mt-auto">Meld på</a>
+
+                <div class="d-flex flex-column">
+                      {% if not user.is_anonymous %}
+                            {% if user in activity.registered_users.all %}
+                                 <a href="#" title="Meld Av" class="btn btn-secondary mt-1">Meld deg av</a>
+                            {% else %}
+                                <a href="{% url 'register' activity.id %}" title="Meld på" class="btn btn-primary mt-1">Meld deg på</a>
+                            {% endif %}
+                      {% else %}
+                            <a href="#" title="Meld På" class="btn btn-primary mt-1 disabled" role="button" aria-disabled="true">Meld deg på</a>
+                      {% endif %}
+                  </div>
+                <!-- <a href="#" class="btn btn-primary mt-auto">Meld på</a> -->
             </div>
         </div>
     </section>
