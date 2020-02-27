@@ -11,7 +11,7 @@
                   </div>
                   <div class="d-flex flex-column w-100 ">
                       <a href="{{ activity.id }}/"><h4 class="mb-1">{{ activity.title }}</h4></a>
-                      <small class="text-muted mb-2">{{ activity.date_from }}</small>
+                      <small class="text-muted mb-2">{{ activity.date }}, fra {{ activity.time_from}} til {{ activity.time_to }}.</small>
                       <p class="mb-2 text-truncate">{{ activity.text|linebreaksbr }}</p>
                       <div class="row">
                           <div class="col">Antall plasser: {{ activity.max_participants }}</div>

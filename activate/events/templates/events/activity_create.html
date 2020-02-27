@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
     <form method="POST">
         {% csrf_token %}
-        {% for field in form %}
+        <!--{% for field in form %}
             <div class="form-group">
                 {{ field.label_tag }}<br>
                 {{ field }}
@@ -15,7 +16,11 @@
                     <p style="color: red">{{ error }}</p>
                 {% endfor %}
             </div>
-        {% endfor %}
+        {% endfor %}-->
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Lag aktivitet!</legend>
+            {{ form|crispy }}
+        </fieldset>
         <input type="submit" class="btn btn-primary" value="Lag aktivitet">
     </form>
 {% endblock content %}

@@ -1,3 +1,5 @@
+import datetime
+
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
@@ -13,13 +15,13 @@ class Activity(models.Model):
     # CASCADE: If the user gets deleted, the corresponding activities will also be deleted
     responsible = models.ForeignKey(User, on_delete=models.CASCADE, related_name='%(app_label)s_%(class)s_responsible')
 
-    date_from = models.DateTimeField(verbose_name="fra dato")
-    date_to = models.DateTimeField(verbose_name="til dato")
+    date = models.DateField(verbose_name="fra dato", default=datetime.date.today, blank=True)
+    time_from = models.TimeField(verbose_name="time from", default=timezone.now, blank=True)
+    time_to = models.TimeField(verbose_name="time to", default=2, blank=True)
 
     gear = models.CharField(max_length=200, verbose_name="utstyr", default='')
 
     max_participants = models.IntegerField(default=0, verbose_name='maks_deltagere')
-
     registered_users = models.ManyToManyField(User, blank=True, verbose_name='påmeldte brukere',
                                               related_name='%(app_label)s_%(class)s_registered')
 
