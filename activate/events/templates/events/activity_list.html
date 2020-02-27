@@ -23,12 +23,14 @@
 
                       {% if not user.is_anonymous %}
                             {% if user in activity.registered_users.all %}
-                                 <a href="#" title="Meld Av" class="btn btn-secondary">Du er påmeldt</a>
+                                 <a href="#" title="Meld Av" class="btn btn-secondary disabled"
+                                    aria-disabled>Du er påmeldt</a>
                             {% else %}
                                 <a href="{% url 'register' activity.id %}" title="Meld på" class="btn btn-primary">Meld deg på</a>
                             {% endif %}
                       {% else %}
-                            <a href="#" title="Meld På" class="btn btn-primary disabled" role="button" aria-disabled="true">Logg inn for å melde deg på</a>
+                            <a href="#" title="Meld På" class="btn btn-primary disabled" role="button"
+                               aria-disabled="true">Logg inn for å melde deg på</a>
                       {% endif %}
 
                   </div>
