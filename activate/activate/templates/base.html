@@ -9,7 +9,7 @@
     <body>
         <nav class="navbar navbar-light navbar-expand-lg bg-white d-flex shadow-sm">
             <a class="navbar-brand" href="/">Activate</a>
-            {% if not user.is_anonymous %}<a href="{% url 'create_activity' %}">Create Activity</a>{% endif %} <!-- Temporary access to the create-activity-page -->
+            {% if not user.is_anonymous %}<a href="{% url 'create_activity' %}">Lag aktivitet</a>{% endif %} <!-- Temporary access to the create-activity-page -->
             <div class="ml-auto">
                 {% if not user.is_authenticated %}
                     <a class="btn btn-link" href="{% url 'login' %}">Login</a>
