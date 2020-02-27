@@ -15,6 +15,7 @@ def view_login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None and user.is_active:
             login(request, user)
+            return redirect('/')
 
     return render(request, 'usermanagement/login_page.html')
 
