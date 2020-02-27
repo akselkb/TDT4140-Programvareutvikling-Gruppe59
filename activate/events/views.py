@@ -22,7 +22,7 @@ def create_activity(request):
             activity.save()  # Save the activity to the database
 
             # TODO : We should probably redirect to the detailed activity page when successfully creating an activity
-            return redirect('/')  # Redirects to the home page
+            return redirect('/' + str(activity.id))  # Redirects to the home page
     else:
         form = CreateActivityForm()
 

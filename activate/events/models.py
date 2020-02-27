@@ -21,7 +21,7 @@ class Activity(models.Model):
 
     gear = models.CharField(max_length=200, verbose_name="utstyr", default='')
 
-    max_participants = models.IntegerField(default=0, verbose_name='maks_deltagere')
+    max_participants = models.IntegerField(default=0, null=True, verbose_name='maks_deltagere')
     registered_users = models.ManyToManyField(User, blank=True, verbose_name='påmeldte brukere',
                                               related_name='%(app_label)s_%(class)s_registered')
 

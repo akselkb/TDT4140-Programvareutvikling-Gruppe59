@@ -14,8 +14,8 @@ class CreateActivityForm(forms.ModelForm):
     time_from = forms.TimeField(label='Start tidspunkt', help_text='F.eks.: 16:30')
     time_to = forms.TimeField(label='Slutt tidspunkt', help_text='F.eks.: 18:00')
 
-    max_participants = forms.IntegerField(label='Antall deltagere', required=False, help_text='Valgfri')
-    gear = forms.CharField(label='Utstyr', max_length=200, required=False, help_text='Valgfri')
+    max_participants = forms.IntegerField(label='Antall deltagere', required=False, help_text='Valgfri.')
+    gear = forms.CharField(label='Utstyr', max_length=200, required=False, help_text='Valgfri.')
 
     class Meta:
         model = Activity
