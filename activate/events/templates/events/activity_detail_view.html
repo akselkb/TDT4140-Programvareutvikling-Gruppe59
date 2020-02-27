@@ -21,12 +21,12 @@
                 <div class="d-flex flex-column sticky-bottom mt-auto">
                       {% if not user.is_anonymous %}
                             {% if user in activity.registered_users.all %}
-                                <a href="#" title="Meld Av" class="btn btn-secondary">Meld deg av</a>
+                                <a href="#" title="Meld Av" class="btn btn-secondary">Du er påmeldt</a>
                             {% else %}
                                 <a href="{% url 'register' activity.id %}" title="Meld på" class="btn btn-primary">Meld deg på</a>
                             {% endif %}
                       {% else %}
-                            <a href="#" title="Meld På" class="btn btn-primary disabled" role="button" aria-disabled="true">Meld deg på</a>
+                            <a href="#" title="Meld På" class="btn btn-primary disabled" role="button" aria-disabled="true">Logg inn for å melde deg på</a>
                       {% endif %}
                   </div>
                 <!-- <a href="#" class="btn btn-primary mt-auto">Meld på</a> -->
