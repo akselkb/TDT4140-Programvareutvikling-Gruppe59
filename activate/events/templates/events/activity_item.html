@@ -7,7 +7,7 @@
             <div class="d-flex flex-column flex-grow w-100 h-100">
                 <div class="d-flex flex-column flex-grow w-100 h-100">
                     <a href="/{{ activity.id }}" class="stretched-link"><h4>{{ activity.title }}</h4></a>
-                    <small class="text-muted mb-2">{{ activity.date_from }}</small>
+                    <small class="text-muted mb-2">{{ activity.date }}, fra {{ activity.time_from }} til {{ activity.time_to }}.</small>
                     <div class="d-flex flex-column flex-grow position-relative h-100">
                         <div style="overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;" class="position-absolute w-100 h-100">
                             <p style="" class="">{{ activity.text|linebreaksbr }}</p>

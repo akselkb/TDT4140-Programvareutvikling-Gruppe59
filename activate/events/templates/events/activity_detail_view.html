@@ -12,7 +12,7 @@
                         <br>
                         <div class="font-weight-light">
                             {% if activity.responsible.first_name|length == 0 and activity.responsible.last_name|length == 0 %}
-                                Arrangør har ikke fullført registeringen
+                                Arrangør har ikke fullført registering.
                             {% else %}
                                 {{ activity.responsible.first_name }} {{ activity.responsible.last_name }}
                             {% endif %}
@@ -47,9 +47,9 @@
             <div style="" class="activate-card bg-white shadow p-4">
                 <div class="d-flex flex-column flex-grow w-100">
                     <a href="/{{ activity.id }}" class=""><h4>{{ activity.title }}</h4></a>
-                    <small class="text-muted mb-2">{{ activity.date_from }}</small>
+                    <small class="text-muted mb-2">{{ activity.date }}, fra {{ activity.time_from }} til {{ activity.time_to }}.</small>
                     <div class="d-flex flex-column flex-grow position-relative">
-                        <div style="" class="">{{ activity.text|linebreaksbr }}</div>
+                        <div style="word-break: break-word;" class="">{{ activity.text|linebreaksbr }}</div>
                     </div>
                 </div>
                 <div class="d-flex flex-column position-relative">
