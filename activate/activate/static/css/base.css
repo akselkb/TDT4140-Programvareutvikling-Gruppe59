@@ -8,6 +8,10 @@ body {
 
 .activity {
     height: 255px;
+}
+
+.activate-card {
     border-radius: 7px;
     overflow: hidden;
+    padding: 0;
 }

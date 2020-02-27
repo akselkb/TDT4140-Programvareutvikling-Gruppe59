@@ -2,23 +2,59 @@
 {% load static %}
 
 {% block content %}
-    <section>
-        <div class="d-flex flex-row">
-            <div>
-                <img src="{% static "images/sit_logo.png" %}" style="float:right;" />
-            </div>
-            <div class="d-flex flex-column w-600" style="float:right;">
-                <h2>{{ activity.title }}</h2>
-                <h5 class="text-muted mb-2">{{ activity.date }}, fra {{ activity.time_from}} til {{ activity.time_to }}.</h5>
-                <p>{{ activity.text|linebreaksbr }}</p>
-                <div>
-                    <div class="font-weight-bold mb-auto">Utstyr: <random-tag class="text-muted mb-2">{{ activity.gear|default:"Ingen utstyr nødvendig"}}</random-tag></div>
+    <section class="d-flex flex-row">
+        <div style="" class="col-md-4 mr-4 ">
+            <div class="activate-card bg-white shadow">
+                <img src="{% static "images/sit_logo_800.png" %}"  style="width: 100%;" alt="Bilde av aktivitet"/>
+                <div class="p-4">
+                    <div class="mb-2">
+                        <strong>Arrangør</strong>
+                        <br>
+                        <div class="font-weight-light">
+                            {% if activity.responsible.first_name|length == 0 and activity.responsible.last_name|length == 0 %}
+                                Arrangør har ikke fullført registeringen
+                            {% else %}
+                                {{ activity.responsible.first_name }} {{ activity.responsible.last_name }}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <strong>Påmeldte</strong>
+                        <br>
+                        <div class="font-weight-light">
+                            {% if activity.max_participants == 0 %}
+                                Alle tillatt
+                            {% else %}
+                                {{ activity.registered_users.count }} av {{ activity.max_participants }}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="">
+                        <strong>Utstyr</strong>
+                        <br>
+                        <div class="font-weight-light">
+                            {% if activity.max_participants == 0 %}
+                                Ingen utstyr
+                            {% else %}
+                                {{ activity.gear }}
+                            {% endif %}</div>
+                    </div>
                 </div>
+            </div>
+        </div>
 
-                <div class="d-flex flex-column sticky-bottom mt-auto">
-                      {% include 'events/activity_button_register.html' %}
-                  </div>
-                <!-- <a href="#" class="btn btn-primary mt-auto">Meld på</a> -->
+        <div class="w-100">
+            <div style="" class="activate-card bg-white shadow p-4">
+                <div class="d-flex flex-column flex-grow w-100">
+                    <a href="/{{ activity.id }}" class=""><h4>{{ activity.title }}</h4></a>
+                    <small class="text-muted mb-2">{{ activity.date_from }}</small>
+                    <div class="d-flex flex-column flex-grow position-relative">
+                        <div style="" class="">{{ activity.text|linebreaksbr }}</div>
+                    </div>
+                </div>
+                <div class="d-flex flex-column position-relative">
+                    {% include 'events/activity_button_register.html' %}
+                </div>
             </div>
         </div>
     </section>
