@@ -16,8 +16,8 @@ class SignUpForm(UserCreationForm):
 
 
 class UserUpdateForm(forms.ModelForm):
-    first_name = forms.CharField(max_length=30, required=False, help_text='Valgfri.')
-    last_name = forms.CharField(max_length=30, required=False, help_text='Valgfri.')
+    first_name = forms.CharField(max_length=30, required=True, help_text='Valgfri.')
+    last_name = forms.CharField(max_length=30, required=True, help_text='Valgfri.')
     email = forms.EmailField(max_length=254, help_text='Påkrevet. Skriv inn en gyldig email-adresse.')
 
     class Meta:
