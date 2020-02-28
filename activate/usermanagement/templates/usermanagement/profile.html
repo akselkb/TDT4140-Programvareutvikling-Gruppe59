@@ -4,16 +4,16 @@
 {% block content %}
 <div class="content pt-5", align="center">
      <div class="card" style="width: 256px; height: auto">
-         <img class="card-img-top" src="https://cdn4.iconfinder.com/data/icons/basic-user-interface-2/512/User_Interface-10-512.png" alt="Card image cap" style="width: 128px; height: 128px; align-self: center;">
+         <img class="card-img-top" src="../{{ user.profile.image.url }}" alt="Card image cap" style="width: 128px; height: 128px; align-self: center;">
          <div class="card-body">
              <h4 class="card-title">{{ user.username }}</h4>
              <p class="card-text">
                  <div>
-                     {% if user.profile.first_name %}
-                         {{ user.profile.first_name }}
+                     {% if user.first_name %}
+                         {{ user.first_name }}
                      {% endif %}
-                     {% if user.profile.last_name %}
-                         {{ user.profile.last_name }}
+                     {% if user.last_name %}
+                         {{ user.last_name }}
                      {% endif %}
                  </div>
                  <div>{{ user.email }}</div>

@@ -124,6 +124,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+IMAGES_ROOT = os.path.join(BASE_DIR, 'activate/static/images')
+IMAGES_URL = 'activate/static/images/'
+
 LOGIN_URL = 'view_login'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
