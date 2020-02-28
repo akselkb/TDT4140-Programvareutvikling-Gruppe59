@@ -1,1 +1,40 @@
-{% include "events/activity_list.html" with activities=activities show_action=True %}
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="container-fluid">
+      <div class="list-group">
+          {% for activity in activities %}
+              <div class="list-group-item mb-3 d-flex flex-row">
+                  <div class="">
+                      <img src="{% static "images/sit_logo.png" %}" style="height: 10vw" class="mr-3 rounded image-container"/>
+                  </div>
+                  <div class="d-flex flex-column w-100 ">
+                      <a href="{% url 'activity_detail_view' activity.id %}"><h4 class="mb-1">{{ activity.title }}</h4></a>
+                      <small class="text-muted mb-2">{{ activity.date_from }}</small>
+                      <p class="mb-2 text-truncate">{{ activity.text|linebreaksbr }}</p>
+                      <div class="row">
+                          <div class="col">Antall plasser: {{ activity.max_participants }}</div>
+                      </div>
+                  </div>
+                  <div class="d-flex flex-column">
+                      <!--<a type="submit" href="#" class="btn btn-primary mt-auto"> Meld på </a> -->
+                      <button type="button" class="btn btn-primary mt-auto" onclick="return clicked();">Meld på</button>
+                  </div>
+                  <script> scr="button_confirmation.js" </script>
+                  <script>
+                  function clicked() {
+                      if (confirm('Bekreft at du ønsker å bli meldt på')) {
+                          window.alert("Du er påmeldt!");
+                      } else {
+                      return false;
+                      }}
+                  </script>
+              </div>
+          {% endfor %}
+      </div>
+  </div>
+{% endblock content %}
+
+
+
