@@ -49,5 +49,5 @@ def register(request, activity_id):
 @login_required
 def organized_activities_view(request):
     activities = Activity.objects.filter(responsible=request.user)
-    return render(request, 'events/organized_activity_list.html', {'activities': activities})
+    return render(request, 'events/activity_list.html', {'activities': activities})
 
