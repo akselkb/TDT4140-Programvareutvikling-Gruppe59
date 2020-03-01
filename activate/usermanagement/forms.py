@@ -6,8 +6,8 @@ import datetime
 
 
 class SignUpForm(UserCreationForm):
-    first_name = forms.CharField(max_length=30, required=False, help_text='Valgfri.')
-    last_name = forms.CharField(max_length=30, required=False, help_text='Valgfri.')
+    first_name = forms.CharField(label='Fornavn', max_length=30, required=True, help_text='Påkrevet.')
+    last_name = forms.CharField(label='Etternavn', max_length=30, required=True, help_text='Påkrevet.')
     email = forms.EmailField(max_length=254, required=True, help_text='Påkrevet. Skriv inn en gyldig email-adresse.')
 
     class Meta:
@@ -16,8 +16,8 @@ class SignUpForm(UserCreationForm):
 
 
 class UserUpdateForm(forms.ModelForm):
-    first_name = forms.CharField(max_length=30, required=True, help_text='Valgfri.')
-    last_name = forms.CharField(max_length=30, required=True, help_text='Valgfri.')
+    first_name = forms.CharField(label='Fornavn', max_length=30, required=True, help_text='Påkrevet.')
+    last_name = forms.CharField(label='Etternavn', max_length=30, required=True, help_text='Påkrevet.')
     email = forms.EmailField(max_length=254, help_text='Påkrevet. Skriv inn en gyldig email-adresse.')
 
     class Meta:
@@ -30,6 +30,7 @@ class ProfileUpdateForm(forms.ModelForm):
                                  widget=forms.SelectDateWidget
                                  (years=[x for x in range(1970, datetime.datetime.now().year+1)]),
                                  required=False, help_text='Valgfri.')
+    image = forms.ImageField(label='Profilbilde', allow_empty_file=True)
 
     class Meta:
         model = Profile
