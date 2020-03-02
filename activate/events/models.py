@@ -30,3 +30,4 @@ class Activity(models.Model):
 
     class Meta:
         verbose_name_plural = "Activities"
+        ordering = ['date', 'time_from']
