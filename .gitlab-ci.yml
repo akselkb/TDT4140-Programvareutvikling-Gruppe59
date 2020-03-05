@@ -1,0 +1,21 @@
+image: "python:3.8"
+
+before_script:
+  - python --version
+  - pip install -r activate/requirements.txt
+
+stages:
+  - linting
+  - test
+
+pylint:
+  stage: linting
+  allow_failure: true
+  script:
+    - pylint -d C0301 activate/activate activate/events activate/usermanagement  # Disables C0301-Line-too-long
+
+test:
+  stage: test
+  script:
+    # Probably have to export our database to the server
+    - python activate/manage.py test  # Run our django-tests
