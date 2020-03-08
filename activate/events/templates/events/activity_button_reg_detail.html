@@ -1,0 +1,11 @@
+{% if not user.is_anonymous %}
+    {% if user.id == activity.responsible.id %}
+        <a href="#" class="btn btn-outline-secondary disabled" aria-disabled="true">Du er arrangør</a>
+    {% elif user in activity.registered_users.all %}
+        <a href="{% url 'unregister' activity.id %}" class="btn btn-secondary mt-1 stretched-link bg-danger" aria-disabled="true">Meld av</a>
+    {% else %}
+        <a href="{% url 'register' activity.id %}" class="btn btn-primary mt-1 stretched-link">Meld deg på</a>
+    {% endif %}
+{% else %}
+    <a href="{% url 'login' %}" class="btn btn-outline-primary stretched-link" role="button">Logg inn for å melde deg på</a>
+{% endif %}
