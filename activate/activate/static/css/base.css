@@ -16,3 +16,17 @@ body {
     overflow: hidden;
     padding: 0;
 }
+
+.unreg_button .after_button{
+    display: none;
+}
+
+.unreg_button:hover  {
+    background-color: #d9534f;
+}
+.unreg_button:hover .after_button {
+    display: inline;
+}
+.unreg_button:hover .before_button {
+    display: none;
+}
