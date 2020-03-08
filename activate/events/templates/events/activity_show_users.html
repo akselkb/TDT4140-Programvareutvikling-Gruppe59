@@ -15,7 +15,14 @@
       </div>
       <div class="modal-body">
         <p>
-            bruker
+            {% if users.all|length == 0 %}
+                Ingen påmeldte brukere
+            {% endif %}
+            {% for user in users.all %}
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{user.first_name}} {{user.last_name}}</li>
+                </ul>
+            {% endfor %}
         </p>
       </div>
       <div class="modal-footer">
