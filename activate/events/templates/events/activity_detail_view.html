@@ -73,7 +73,6 @@
                             {% endif %}
                         </div>
                     </div>
-
                     {% if activity.price > 0 %}
                         <div class="mb-2">
                             <strong>Pris</strong>
@@ -83,7 +82,11 @@
                             </div>
                         </div>
                     {% endif %}
-
+                    <div class="">
+                        <br>
+                        {% include "events/activity_show_users.html" with users=activity.registered_users %}
+                        <br>
+                    </div>
                 </div>
             </div>
         </div>
