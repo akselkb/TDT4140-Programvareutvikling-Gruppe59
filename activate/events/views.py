@@ -37,7 +37,6 @@ def activity_detail_view(request, id):
 
 
 def register(request, activity_id):
-
     activity = get_object_or_404(Activity, id=activity_id)
 
     activity.registered_users.add(request.user.id)
@@ -46,8 +45,16 @@ def register(request, activity_id):
     return redirect('/')
 
 
+def unregister(request, activity_id):
+    activity = get_object_or_404(Activity, id=activity_id)
+
+    activity.registered_users.remove(request.user.id)
+    messages.info(request, u'Du er nå meldt av %s.' % activity.title)
+
+    return redirect('/')
+
+
 @login_required
 def organized_activities_view(request):
     activities = Activity.objects.filter(responsible=request.user)
     return render(request, 'events/activity_list.html', {'activities': activities})
-

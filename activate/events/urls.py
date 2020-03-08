@@ -7,5 +7,6 @@ urlpatterns = [
     path('create/', views.create_activity, name='create_activity'),
     path('<int:id>/', views.activity_detail_view, name='activity_detail_view'),
     url(r'^register/(\d+)/$', views.register, name='register'),
+    url(r'^unregister/(\d+)/$', views.unregister, name='unregister'),
     path('me/', views.organized_activities_view, name='organized_activities')
 ]
