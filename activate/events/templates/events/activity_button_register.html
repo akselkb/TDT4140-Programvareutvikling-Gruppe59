@@ -7,8 +7,8 @@
             <span class="btn btn-secondary w-100">Du er påmeldt</span>
         </a>
     {% else %}
-        <a href="{% url 'register' activity.id %}" class="btn btn-primary mt-1 ">Meld deg på</a>
+        <a href="{% url 'register' activity.id %}" class="btn btn-primary mt-1 stretched-link">Meld deg på</a>
     {% endif %}
 {% else %}
-    <a href="{% url 'login' %}" class="btn btn-outline-primary " role="button">Logg inn for å melde deg på</a>
+    <a href="{% url 'login' %}" class="btn btn-outline-primary stretched-link" role="button">Logg inn for å melde deg på</a>
 {% endif %}
