@@ -59,7 +59,7 @@ def unregister(request, activity_id):
 @login_required
 def organized_activities_view(request):
     arranged_activities = Activity.objects.filter(responsible=request.user)
-    upcoming_activities = Activity.objects.filter(registered_users=request.user)
+    upcoming_activities = Activity.objects.filter(registered_users=request.user).filter(date__gte=datetime.date.today())
     return render(request, 'events/activity_upcoming.html',
                   {'arranged_activities': arranged_activities,
                    'upcoming_activities': upcoming_activities})
