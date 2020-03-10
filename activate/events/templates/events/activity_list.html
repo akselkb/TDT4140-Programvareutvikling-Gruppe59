@@ -1,12 +1,68 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-    <div class="container-fluid">
-        <div class="list-group">
-            {% for activity in activities %}
-                {% include "events/activity_item.html" with activity=activity %}
-            {% endfor %}
+
+  <div class="container-fluid mb-4 w-100">
+
+    <div style="" class="bg-gray shadow p-4 rounded w-100">
+
+      <!-- Search form -->
+        <form class="d-none d-sm-inline-block form-inline mw-100"
+              action="{% url 'events:activity_list' %}" method="GET">
+          <div class="form-row h6">
+            {% crispy search_form %}
+          </div>
+        </form>
+
+      <br>
+
+      <div class="form-row">
+
+        <!-- Date filter -->
+        <div class="btn-group mr-1">
+          <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-calendar mr-2"></i>Dato
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
         </div>
-    </div>
+
+        <!-- NTNUI filter -->
+        <button type="button" class="btn btn-outline-secondary mr-1">
+          NTNUI
+        </button>
+
+        <!-- Gratis filter -->
+        <button type="button" class="btn btn-outline-secondary mr-1">
+          Kun gratis
+        </button>
+
+        <!-- Ledig filter -->
+        <button type="button" class="btn btn-outline-secondary mr-1">
+          Kun ledige
+        </button>
+
+        <!-- Send-knapp -->
+        <button type="button" class="btn btn-primary ml-1">
+          Send
+        </button>
+
+        </div>
+      </div>
+  </div>
+
+  <div class="container-fluid">
+      <div class="list-group">
+          {% for activity in activities %}
+              {% include "events/activity_item.html" with activity=activity %}
+          {% endfor %}
+      </div>
+  </div>
 {% endblock content %}
