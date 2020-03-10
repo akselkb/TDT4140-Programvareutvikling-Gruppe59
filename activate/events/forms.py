@@ -1,7 +1,10 @@
+from crispy_forms.bootstrap import FieldWithButtons, StrictButton
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, Field
 from django import forms
 import datetime
 
-from events.models import Activity
+from .models import Activity
 
 
 class CreateActivityForm(forms.ModelForm):
@@ -24,3 +27,20 @@ class CreateActivityForm(forms.ModelForm):
     class Meta:
         model = Activity
         fields = ('title', 'text', 'date', 'time_from', 'time_to', 'max_participants', 'gear', 'price', 'show_email_address', 'krever_NTNUI_medlemskap')
+
+
+
+class SearchForm(forms.Form):
+    query = forms.CharField(label='Søk', max_length=255, required=False)
+
+    helper = FormHelper()
+    helper.form_show_labels = False
+    helper.help_text_inline = True
+    helper.disable_csrf = True
+    helper.layout = Layout(
+        FieldWithButtons(
+            Field('query', placeholder="Søk..."),
+            StrictButton('<i class="fas fa-search"></i>', value='submit', type='submit', css_class='btn-primary')
+        )
+    )
+

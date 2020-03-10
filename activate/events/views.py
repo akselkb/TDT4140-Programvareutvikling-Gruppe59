@@ -3,14 +3,34 @@ import datetime
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
-from events.forms import CreateActivityForm
+from .forms import CreateActivityForm, SearchForm
 from .models import Activity
 
 
 def activity_list(request):
     activities = Activity.objects.all()
-    return render(request, 'events/activity_list.html', {'activities': activities})
+
+    search_form = SearchForm(request.GET or None)
+    query = ''
+
+    if search_form.is_bound and search_form.is_valid():
+        query = search_form.cleaned_data.get("query")
+        contains_query = Q()
+        if query:
+            contains_query &= (
+                Q(title__icontains=query) |
+                Q(text__icontains=query)
+            )
+        activities = activities.filter(contains_query)
+
+    context = {
+        'activities': activities,
+        'search_form': search_form,
+        'query_string': query,
+    }
+    return render(request, 'events/activity_list.html', context)
 
 
 def create_activity(request):
