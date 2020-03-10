@@ -8,6 +8,9 @@
             {% for activity in arranged_activities %}
                 {% include "events/activity_item.html" with activity=activity %}
             {% endfor %}
+            {% if arranged_activities.count == 0 %}
+                <p>Du er ikke arrangør for noen arrangementer.</p>
+            {% endif %}
         </div>
 
         <div class="list-group mt-5">
@@ -15,6 +18,9 @@
             {% for activity in upcoming_activities %}
                 {% include "events/activity_item.html" with activity=activity %}
             {% endfor %}
+            {% if upcoming_activities.count == 0 %}
+                <p>Du har ingen kommende arrangementer.</p>
+            {% endif %}
         </div>
     </div>
 {% endblock content %}
