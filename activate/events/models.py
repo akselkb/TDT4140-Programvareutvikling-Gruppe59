@@ -25,11 +25,13 @@ class Activity(models.Model):
     registered_users = models.ManyToManyField(User, blank=True, verbose_name='påmeldte brukere',
                                               related_name='%(app_label)s_%(class)s_registered')
 
+
     show_email_address = models.BooleanField(verbose_name="vis_e-post", default=False)
+    krever_NTNUI_medlemskap = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
 
     class Meta:
         verbose_name_plural = "Activities"
-        ordering = ['date', 'time_from']
+        ordering = ['date', 'time_from', 'krever_NTNUI_medlemskap']

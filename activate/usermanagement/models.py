@@ -7,6 +7,7 @@ class Profile(models.Model):
     birth_date = models.DateField(null=True)
     image = models.ImageField(default='activate/static/images/profile_pics/default.png',
                               upload_to='activate/static/images/profile_pics')
+    NTNUI_medlem = models.BooleanField(default=False)
 
     def __str__(self):
         return f'{self.user.username} Profile'

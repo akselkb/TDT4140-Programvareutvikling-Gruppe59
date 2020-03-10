@@ -34,7 +34,7 @@ def signup(request):
             user = form.save()
 
             login(request, user)
-            return redirect('/')
+            return redirect('modify_profile')
     else:
         form = SignUpForm()
 

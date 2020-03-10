@@ -20,6 +20,7 @@ class UserUpdateForm(forms.ModelForm):
     last_name = forms.CharField(label='Etternavn', max_length=30, required=True, help_text='Påkrevet.')
     email = forms.EmailField(max_length=254, help_text='Påkrevet. Skriv inn en gyldig email-adresse.')
 
+
     class Meta:
         model = User
         fields = ['username', 'first_name', 'last_name', 'email']
@@ -31,7 +32,8 @@ class ProfileUpdateForm(forms.ModelForm):
                                  (years=[x for x in range(1970, datetime.datetime.now().year+1)]),
                                  required=False, help_text='Valgfri.')
     image = forms.ImageField(label='Profilbilde', allow_empty_file=True)
+    NTNUI_medlem = forms.CheckboxInput()
 
     class Meta:
         model = Profile
-        fields = ['birth_date', 'image']
+        fields = ['birth_date', 'image', 'NTNUI_medlem']
