@@ -18,6 +18,15 @@
                             {% endif %}
                         </div>
                     </div>
+                    {% if activity.show_email_address %}
+                    <div class="mb-2">
+                        <strong>Kontaktinformasjon</strong>
+                        <br>
+                        <div class="font-weight-light">
+                                {{ activity.responsible.email }}
+                        </div>
+                    </div>
+                    {% endif %}
                     <div class="mb-2">
                         <strong>Påmeldte</strong>
                         <br>

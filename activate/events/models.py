@@ -25,6 +25,8 @@ class Activity(models.Model):
     registered_users = models.ManyToManyField(User, blank=True, verbose_name='påmeldte brukere',
                                               related_name='%(app_label)s_%(class)s_registered')
 
+    show_email_address = models.BooleanField(verbose_name="vis_e-post", default=False)
+
     def __str__(self):
         return self.title
 
