@@ -1,3 +1,5 @@
+import datetime
+
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -56,5 +58,8 @@ def unregister(request, activity_id):
 
 @login_required
 def organized_activities_view(request):
-    activities = Activity.objects.filter(responsible=request.user)
-    return render(request, 'events/activity_list.html', {'activities': activities})
+    arranged_activities = Activity.objects.filter(responsible=request.user)
+    upcoming_activities = Activity.objects.filter(registered_users=request.user)
+    return render(request, 'events/activity_upcoming.html',
+                  {'arranged_activities': arranged_activities,
+                   'upcoming_activities': upcoming_activities})

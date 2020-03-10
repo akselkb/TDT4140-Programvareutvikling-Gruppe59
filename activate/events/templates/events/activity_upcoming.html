@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="list-group">
+            <legend class="border-bottom mb-4">Dine arrangementer!</legend>
+            {% for activity in arranged_activities %}
+                {% include "events/activity_item.html" with activity=activity %}
+            {% endfor %}
+        </div>
+
+        <div class="list-group mt-5">
+            <legend class="border-bottom mb-4 mt-5">Kommende arrangementer!</legend>
+            {% for activity in upcoming_activities %}
+                {% include "events/activity_item.html" with activity=activity %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}
