@@ -41,8 +41,11 @@ def activity_detail_view(request, id):
 def register(request, activity_id):
     activity = get_object_or_404(Activity, id=activity_id)
 
-    activity.registered_users.add(request.user.id)
-    messages.info(request, u'Du er nå meldt på %s.' % activity.title)
+    if activity.registered_users.count() <= activity.max_participants:
+        activity.registered_users.add(request.user.id)
+        messages.info(request, u'Du er nå meldt på %s.' % activity.title)
+    else:
+        messages.info(request, u'Arrangementet er fullt %s.' % activity.title)
 
     return redirect('/')
 
