@@ -20,11 +20,11 @@ class Activity(models.Model):
     time_to = models.TimeField(verbose_name="time to", default=2, blank=True)
 
     gear = models.CharField(max_length=200, verbose_name="utstyr", default='')
+    price = models.DecimalField(max_digits=6, decimal_places=2, default=0, null=True, verbose_name='pris')
 
     max_participants = models.IntegerField(default=0, null=True, verbose_name='maks_deltagere')
     registered_users = models.ManyToManyField(User, blank=True, verbose_name='påmeldte brukere',
                                               related_name='%(app_label)s_%(class)s_registered')
-
 
     show_email_address = models.BooleanField(verbose_name="vis_e-post", default=False)
     krever_NTNUI_medlemskap = models.BooleanField(default=False)
