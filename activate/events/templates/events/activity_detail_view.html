@@ -48,6 +48,15 @@
                                 {{ activity.gear }}
                             {% endif %}</div>
                     </div>
+                    {% if activity.price > 0%}
+                        <div class="mb-2">
+                            <strong>Pris</strong>
+                            <br>
+                            <div class="font-weight-light">
+                                {{ activity.price}} kr
+                            </div>
+                        </div>
+                    {%endif%}
                 </div>
             </div>
         </div>
