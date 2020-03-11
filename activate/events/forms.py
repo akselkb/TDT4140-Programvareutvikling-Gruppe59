@@ -16,10 +16,11 @@ class CreateActivityForm(forms.ModelForm):
 
     max_participants = forms.IntegerField(label='Antall deltagere', required=False, help_text='Valgfri.')
     gear = forms.CharField(label='Utstyr', max_length=200, required=False, help_text='Valgfri.')
+    price = forms.DecimalField(label='Pris', required=False, help_text='Valgfri.')
 
     show_email_address = forms.BooleanField(label='Vis e-post', required=False, help_text='Vis e-postadresse slik at deltakere kan ta kontakt.')
     krever_NTNUI_medlemskap = forms.CheckboxInput()
 
     class Meta:
         model = Activity
-        fields = ('title', 'text', 'date', 'time_from', 'time_to', 'max_participants', 'gear', 'show_email_address', 'krever_NTNUI_medlemskap')
+        fields = ('title', 'text', 'date', 'time_from', 'time_to', 'max_participants', 'gear', 'price', 'show_email_address', 'krever_NTNUI_medlemskap')
