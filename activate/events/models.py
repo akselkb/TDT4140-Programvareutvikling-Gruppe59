@@ -3,8 +3,28 @@ import datetime
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
+from django.db.models import F, Count, ExpressionWrapper, Case, When, Value, BooleanField, IntegerField
 from django.utils import timezone
 
+
+class ActivityManager(models.Manager):
+    """QuerySet manager for Activity class to add non-database fields.
+
+    A @property in the model cannot be used because QuerySets (eg. return
+    value from .all()) are directly tied to the database Fields -
+    this does not include @property attributes."""
+
+    def get_queryset(self):
+        """Overrides the models.Manager method"""
+        num_participants = Count('registered_users')
+        qs = super(ActivityManager, self).get_queryset().annotate(num_participants=Count('registered_users'))
+        qs = qs.annotate(is_full=Case(
+            When(max_participants__isnull=True, then=Value(False)),
+            When(num_participants__gte=F('max_participants'), then=Value(True)),
+            default=Value(False),
+            output_field=BooleanField()
+        ))
+        return qs
 
 class Activity(models.Model):
     """Model for activities. Contains all necessary info for a single activity event."""
@@ -28,6 +48,10 @@ class Activity(models.Model):
 
     show_email_address = models.BooleanField(verbose_name="vis_e-post", default=False)
     krever_NTNUI_medlemskap = models.BooleanField(default=False)
+
+    # Overridden objects manager
+    objects = ActivityManager()
+
 
     def __str__(self):
         return self.title
