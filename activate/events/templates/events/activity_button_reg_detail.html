@@ -2,12 +2,12 @@
     {% if user.id == activity.responsible.id %}
         <a href="#" class="btn btn-outline-secondary disabled" aria-disabled="true">Du er arrangør</a>
     {% elif user in activity.registered_users.all %}
-        <a href="{% url 'unregister' activity.id %}" class="btn btn-danger mt-1 stretched-link" aria-disabled="true">Meld av</a>
+        <a href="{% url 'events:unregister' activity.id %}" class="btn btn-danger mt-1 stretched-link" aria-disabled="true">Meld av</a>
     {% elif activity.max_participants <= activity.registered_users.count %}
         <a href="#" class="btn btn-outline-secondary disabled" aria-disabled="true">Arrangementet er fullt</a>
     {% else %}
-        <a href="{% url 'register' activity.id %}" class="btn btn-primary mt-1 stretched-link">Meld deg på</a>
+        <a href="{% url 'events:register' activity.id %}" class="btn btn-primary mt-1 stretched-link">Meld deg på</a>
     {% endif %}
 {% else %}
-    <a href="{% url 'login' %}" class="btn btn-outline-primary stretched-link" role="button">Logg inn for å melde deg på</a>
+    <a href="{% url 'usermanagement:login' %}" class="btn btn-outline-primary stretched-link" role="button">Logg inn for å melde deg på</a>
 {% endif %}
