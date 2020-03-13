@@ -5,30 +5,39 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
-from .forms import CreateActivityForm, SearchForm
+from .forms import CreateActivityForm, SearchForm, FilterForm
 from .models import Activity
 
 
 def activity_list(request):
     activities = Activity.objects.all()
-
+    filter_form = FilterForm(request.GET or None)
     search_form = SearchForm(request.GET or None)
-    query = ''
 
+    search_query = ''
+    filter_query = Q()
     if search_form.is_bound and search_form.is_valid():
-        query = search_form.cleaned_data.get("query")
-        contains_query = Q()
-        if query:
-            contains_query &= (
-                Q(title__icontains=query) |
-                Q(text__icontains=query)
+        search_query = search_form.cleaned_data.get("query")
+        if search_query:
+            filter_query &= (
+                    Q(title__icontains=search_query) |
+                    Q(text__icontains=search_query)
             )
-        activities = activities.filter(contains_query)
+
+    if filter_form.is_bound and filter_form.is_valid():
+        filters = filter_form.cleaned_data
+        if filters.get("available"):
+            filter_query &= (
+                Q(is_full=False)
+            )
+
+    activities = activities.filter(filter_query)
 
     context = {
         'activities': activities,
+        'filter_form': filter_form,
         'search_form': search_form,
-        'query_string': query,
+        'query_string': search_query,
     }
     return render(request, 'events/activity_list.html', context)
 

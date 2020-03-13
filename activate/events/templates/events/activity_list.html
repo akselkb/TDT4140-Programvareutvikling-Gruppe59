@@ -9,14 +9,24 @@
     <div style="" class="bg-gray shadow p-4 rounded w-100">
 
       <!-- Search form -->
-        <form class="d-none d-sm-inline-block form-inline mw-100"
-              action="{% url 'events:activity_list' %}" method="GET">
-          <div class="form-row h6">
-            {% crispy search_form %}
-          </div>
-        </form>
+      <form class="d-none d-sm-inline-block form-inline mw-100 mb-1"
+            action="{% url 'events:activity_list' %}" method="GET">
+        <div class="form-row h6">
+          {% crispy search_form %}
+        </div>
+      </form>
 
-      <br>
+      <div class="text-muted form-row my-1">Filtrering</div>
+
+      <form class="form-inline"
+            action="{% url 'events:activity_list' %}" method="GET">
+        <label class="" for="{{ filter_form.available.id_for_label }}">
+            {{ filter_form.available  }}
+            <span class="">Vis kun ledige</span>
+        </label>
+        <input type="submit" value="OK">
+      </form>
+
 
       <div class="form-row">
 

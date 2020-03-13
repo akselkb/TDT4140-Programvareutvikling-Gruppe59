@@ -1,6 +1,6 @@
 from crispy_forms.bootstrap import FieldWithButtons, StrictButton
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Field
+from crispy_forms.layout import Layout, Field, Button, BaseInput
 from django import forms
 import datetime
 
@@ -29,7 +29,6 @@ class CreateActivityForm(forms.ModelForm):
         fields = ('title', 'text', 'date', 'time_from', 'time_to', 'max_participants', 'gear', 'price', 'show_email_address', 'krever_NTNUI_medlemskap')
 
 
-
 class SearchForm(forms.Form):
     query = forms.CharField(label='Søk', max_length=255, required=False)
 
@@ -43,4 +42,8 @@ class SearchForm(forms.Form):
             StrictButton('<i class="fas fa-search"></i>', value='submit', type='submit', css_class='btn-primary')
         )
     )
+
+
+class FilterForm(forms.Form):
+    available = forms.BooleanField(label="Kun ledige", required=False)
 
