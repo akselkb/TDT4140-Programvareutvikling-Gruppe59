@@ -3,24 +3,24 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-
-  <div class="container-fluid mb-4 w-100">
-
-    <div class="bg-gray shadow px-4 py-4 rounded w-100">
-
-      <form action="{% url 'events:activity_list' %}" method="GET" class="mb-0">
-        <div class="form-row ml-0">
-          {% crispy search_form %}
-        </div>
-      </form>
-
-      <div class="text-muted my-1">Filtrering</div>
-
-      <form action="{% url 'events:activity_list' %}" method="GET">
-        {% crispy filter_form %}
-      </form>
-
+  <div class="container-fluid mb-4" id="accordion">
+    <div class="activate-card shadow">
+      <div class="card-header" id="headingFilter">
+        <h5 class="mb-0">
+          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFilter" aria-expanded="true" aria-controls="collapseFilter">
+            <i class="fas fa-filter"></i> Filtreringsvalg
+          </button>
+        </h5>
       </div>
+
+      <div id="collapseFilter" class="collapse" aria-labelledby="headingFilter" data-parent="#accordion">
+        <div class="card-body">
+           <form action="{% url 'events:activity_list' %}" method="GET">
+            {% crispy filter_form %}
+           </form>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="container-fluid">
@@ -31,3 +31,4 @@
       </div>
   </div>
 {% endblock content %}
+
