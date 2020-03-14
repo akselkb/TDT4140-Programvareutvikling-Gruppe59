@@ -30,6 +30,14 @@ def activity_list(request):
             filter_query &= (
                 Q(is_full=False)
             )
+        if filters.get("hide_ntnui"):
+            filter_query &= (
+                Q(krever_NTNUI_medlemskap=False)
+            )
+        if filters.get("free"):
+            filter_query &= (
+                Q(price=0)
+            )
 
     activities = activities.filter(filter_query)
 

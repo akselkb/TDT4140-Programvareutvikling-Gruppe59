@@ -1,6 +1,6 @@
 from crispy_forms.bootstrap import FieldWithButtons, StrictButton
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Field, Button, BaseInput
+from crispy_forms.layout import Layout, Field, Div
 from django import forms
 import datetime
 
@@ -46,4 +46,25 @@ class SearchForm(forms.Form):
 
 class FilterForm(forms.Form):
     available = forms.BooleanField(label="Kun ledige", required=False)
+    hide_ntnui = forms.BooleanField(label="Ikke NTNUI", required=False)
+    free = forms.BooleanField(label="Kun gratis", required=False)
+
+    helper = FormHelper()
+    helper.disable_csrf = True
+    helper.layout = Layout(
+        Div(
+            Field('available', type="checkbox", css_class="custom-control-input"),
+            css_class="custom-control custom-switch pl-3"
+        ),
+        Div(
+            Field('hide_ntnui', type="checkbox", css_class="custom-control-input"),
+            css_class="custom-control custom-switch pl-3"
+        ),
+        Div(
+            Field('free', type="checkbox", css_class="custom-control-input"),
+            css_class="custom-control custom-switch pl-3"
+        ),
+        StrictButton('Filtrer', value='submit', type='submit', css_class='btn-primary')
+    )
+
 
