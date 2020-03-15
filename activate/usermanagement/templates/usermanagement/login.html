@@ -8,6 +8,11 @@
         <fieldset class="form-group">
             {{ form|crispy }}
         </fieldset>
-    <input type="submit" class="btn btn-primary w-100" value="Logg inn">
+        <input type="submit" class="btn btn-primary w-100" value="Logg inn">
     </form>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Har du ikke registrert en bruker?<a class="ml-1" href="{% url 'signup' %}">Registrer deg her</a>
+        </small>
+    </div>
 {% endblock content %}
