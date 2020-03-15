@@ -21,11 +21,6 @@ def signup(request):
 
 @login_required
 def profile(request):
-    return render(request, 'usermanagement/profile.html')
-
-
-@login_required
-def modify_profile(request):
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, instance=request.user)
         p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
@@ -44,4 +39,6 @@ def modify_profile(request):
         'p_form': p_form
     }
 
-    return render(request, 'usermanagement/modify_profile.html', context)
+    return render(request, 'usermanagement/profile.html', context)
+
+
