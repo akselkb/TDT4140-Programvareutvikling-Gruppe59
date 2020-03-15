@@ -127,6 +127,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 IMAGES_ROOT = os.path.join(BASE_DIR, 'activate/static/images')
 IMAGES_URL = 'activate/static/images/'
 
-LOGIN_URL = 'view_login'
+LOGOUT_REDIRECT_URL = '/login'
+LOGIN_REDIRECT_URL = '/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
