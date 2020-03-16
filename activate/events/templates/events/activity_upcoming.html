@@ -22,5 +22,27 @@
                 <p>Du har ingen kommende arrangementer.</p>
             {% endif %}
         </div>
+
+
+        <div class="list-group mt-5">
+            <legend class="border-bottom mb-4 mt-5">Dine tidligere arrangementer!</legend>
+            {% for activity in earlier_arranged_activities %}
+                {% include "events/activity_item.html" with activity=activity %}
+            {% endfor %}
+            {% if earlier_arranged_activities.count == 0 %}
+                <p>Du er har ikke vært arrangør for noen tidligere arrangementer.</p>
+            {% endif %}
+        </div>
+
+
+        <div class="list-group mt-5">
+            <legend class="border-bottom mb-4 mt-5">Tidligere påmeldte arrangementer!</legend>
+            {% for activity in earlier_activities %}
+                {% include "events/activity_item.html" with activity=activity %}
+            {% endfor %}
+            {% if earlier_activities.count == 0 %}
+                <p>Du er har ikke vært på noen tidligere arrangementer.</p>
+            {% endif %}
+        </div>
     </div>
 {% endblock content %}
