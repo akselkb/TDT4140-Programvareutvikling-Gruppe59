@@ -5,8 +5,21 @@
     <section class="d-flex flex-row">
         <div style="" class="col-md-4 mr-2 ">
             <div class="activate-card bg-white shadow">
-                <img src="{% static "images/sit_logo_800.png" %}"  style="width: 100%;" alt="Bilde av aktivitet"/>
+                {% if activity.krever_NTNUI_medlemskap %}
+                    <img src="{% static "images/ntnui_logo_800.png" %}" style="width: 100%;"  alt="NTNUI-logo"/>
+                {% else %}
+                    <img src="{% static "images/sit_logo_800.png" %}" style="width: 100%;" alt="Bilde av aktivitet"/>
+                {% endif %}
+
+
                 <div class="p-4">
+
+                    {% if activity.krever_NTNUI_medlemskap %}
+                        <div class="mb-2">
+                            <p>Dette arrangementet krever NTNUI-medlemskap</p>
+                        </div>
+                    {% endif %}
+
                     <div class="mb-2">
                         <strong>Arrangør</strong>
                         <br>
@@ -38,7 +51,7 @@
                             {% endif %}
                         </div>
                     </div>
-                    <div class="">
+                    <div class="mb-2">
                         <strong>Utstyr</strong>
                         <br>
                         <div class="font-weight-light">
@@ -46,17 +59,20 @@
                                 Ingen utstyr påkrevd.
                             {% else %}
                                 {{ activity.gear }}
-                            {% endif %}</div>
+                            {% endif %}
+                        </div>
                     </div>
-                    {% if activity.price > 0%}
+
+                    {% if activity.price > 0 %}
                         <div class="mb-2">
                             <strong>Pris</strong>
                             <br>
                             <div class="font-weight-light">
-                                {{ activity.price}} kr
+                                {{ activity.price }} kr
                             </div>
                         </div>
-                    {%endif%}
+                    {% endif %}
+
                 </div>
             </div>
         </div>
