@@ -15,6 +15,10 @@ def activity_list(request):
 
     search_query = ''
     filter_query = Q()
+
+    # Shows only upcoming activities
+    filter_query &= Q(date__gte=datetime.date.today())
+
     if filter_form.is_bound and filter_form.is_valid():
         filters = filter_form.cleaned_data
         search_query = filters.get("search")
@@ -35,7 +39,6 @@ def activity_list(request):
             filter_query &= (
                 Q(price=0)
             )
-
     activities = activities.filter(filter_query)
 
     context = {
