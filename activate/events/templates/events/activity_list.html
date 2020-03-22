@@ -4,6 +4,31 @@
 
 {% block content %}
   <div class="container-fluid mb-4" id="accordion">
+  {% if not user.is_authenticated %}
+      <div class="activate-card shadow mb-4">
+          <div class="card-header" align="center">
+              <h3 class="mb-2">Activate!</h3>
+          </div>
+          <div class="card-body" align="left">
+              <p>
+                  Inaktivitet er et voksende problem i Norge. Unge i 2020 beveger seg alt for lite i løpet av en dag.
+                  I tillegg til dette er ensomhet blant studenter et reelt problem.
+              </p>
+              <p>
+                  Sit ønsker derfor å utvikle et produkt hvor folk kan legge ut forskjellige aktiviteter, og hvor de
+                  kan åpne for at andre studenter også kan være med. Eksempler på slike aktiviteter kan være å spille
+                  fotball, volleyball, dra å klatre, osv. Som bruker kan man melde seg på de arrangementer man ønsker å
+                  delta på.
+              </p>
+              <div align="center">
+                  <legend class="border-bottom mb-2"></legend>
+                  <a class="btn btn-primary ml-1" align="center" href={% url 'usermanagement:signup' %}>
+                      Bli med i dag!
+                  </a>
+              </div>
+          </div>
+      </div>
+      {% endif %}
     <div class="activate-card shadow">
       <div class="card-header" id="headingFilter">
         <h5 class="mb-0">
