@@ -1,10 +1,12 @@
 import datetime
 
+from django.core.mail import send_mail
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
+from activate import settings
 from .forms import CreateActivityForm, FilterForm
 from .models import Activity
 
@@ -73,11 +75,26 @@ def create_activity(request):
 def cancel_activity(request, id):
     # Make sure the activity is not already cancelled
     activity = Activity.objects.get(id=id)
-    if not activity.cancelled and activity.date > datetime.date.today():
+    if not activity.cancelled and request.user == activity.responsible and activity.date > datetime.date.today():
         activity.cancelled = True
         activity.save()
 
+        for user in activity.registered_users.all():
+            email_activity_cancellation(activity, user)
+
     return redirect('/' + str(id))
+
+
+def email_activity_cancellation(activity, user):
+    send_mail(
+        'Et arrangement du er påmeldt er blitt kansellert!',
+        '"' + activity.title + '" er kansellert.\n\n'
+        'For mer informasjon se arrangementsiden:\n'
+        'http://127.0.0.1:8000/' + str(activity.id),
+        settings.EMAIL_HOST_USER,
+        [user.email],
+        fail_silently=False,
+    )
 
 
 def activity_detail_view(request, id):
