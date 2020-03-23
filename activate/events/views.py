@@ -69,6 +69,11 @@ def create_activity(request):
     return render(request, 'events/activity_create.html', {'form': form})
 
 
+@login_required
+def cancel_activity(request, id):
+    return redirect('/' + str(id))
+
+
 def activity_detail_view(request, id):
     activity = Activity.objects.get(id=id)  # Gets right activity
     return render(request, 'events/activity_detail_view.html', {'activity': activity})

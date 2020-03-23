@@ -89,7 +89,7 @@
         </div>
 
         <div class="w-100">
-            <div style="" class="activate-card bg-white shadow p-4">
+            <div class="activate-card bg-white shadow p-4">
                 <div class="d-flex flex-column flex-grow w-100">
                     <a href="/{{ activity.id }}" class=""><h4>{{ activity.title }}</h4></a>
                     <small class="text-muted mb-2">{{ activity.date }}, fra {{ activity.time_from }} til {{ activity.time_to }}.</small>
@@ -101,6 +101,11 @@
                     {% include 'events/activity_button_reg_detail.html' %}
                 </div>
             </div>
+            {% if activity.responsible == request.user %}
+                <div class="mt-4 text-center">
+                    <a class="text-danger" href="{% url 'events:cancel_activity' activity.id %}">Avlyst arrangement</a>
+                </div>
+            {% endif %}
         </div>
     </section>
 {% endblock content %}

@@ -10,5 +10,6 @@ urlpatterns = [
     path('<int:id>/', views.activity_detail_view, name='activity_detail_view'),
     url(r'^register/(\d+)/$', views.register, name='register'),
     url(r'^unregister/(\d+)/$', views.unregister, name='unregister'),
+    url(r'^cancel/(\d+)/$', views.cancel_activity, name='cancel_activity'),
     path('me/', views.organized_activities_view, name='organized_activities')
 ]
