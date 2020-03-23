@@ -101,7 +101,7 @@
                     {% include 'events/activity_button_reg_detail.html' %}
                 </div>
             </div>
-            {% if activity.responsible == request.user %}
+            {% if activity.responsible == request.user and not activity.cancelled and activity.date > date %}
                 <div class="mt-4 text-center">
                     <a class="text-danger" href="{% url 'events:cancel_activity' activity.id %}">Avlyst arrangement</a>
                 </div>

@@ -71,12 +71,19 @@ def create_activity(request):
 
 @login_required
 def cancel_activity(request, id):
+    # Make sure the activity is not already cancelled
+    activity = Activity.objects.get(id=id)
+    if not activity.cancelled and activity.date > datetime.date.today():
+        activity.cancelled = True
+        activity.save()
+
     return redirect('/' + str(id))
 
 
 def activity_detail_view(request, id):
     activity = Activity.objects.get(id=id)  # Gets right activity
-    return render(request, 'events/activity_detail_view.html', {'activity': activity})
+    date = datetime.date.today()
+    return render(request, 'events/activity_detail_view.html', {'activity': activity, 'date': date})
 
 
 def register(request, activity_id):

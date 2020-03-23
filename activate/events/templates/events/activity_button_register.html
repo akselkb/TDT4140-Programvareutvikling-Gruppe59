@@ -1,18 +1,22 @@
-{% if not user.is_anonymous %}
-    {% if user.id == activity.responsible.id %}
-        <a href="#" class="btn btn-outline-secondary disabled" aria-disabled="true">Du er arrangør</a>
-    {% elif not user.profile.NTNUI_medlem and activity.krever_NTNUI_medlemskap %}
-        <a href="#" class="btn btn-outline-secondary disabled" aria-disabled="true"><i class="fas fa-lock"></i> Krever NTNUI-medlemskap </a>
-    {% elif user in activity.registered_users.all %}
-        <a href="{% url 'events:unregister' activity.id %}" class="mt-1 stretched-link unreg_button">
-            <span class="btn btn-danger position-absolute w-100 after_button">Meld av</span>
-            <span class="btn btn-secondary w-100">Du er påmeldt</span>
-        </a>
-    {% elif activity.max_participants <= activity.registered_users.count %}
-        <a href="#" class="btn btn-outline-secondary disabled" aria-disabled="true">Arrangementet er fullt</a>
-    {% else %}
-        <a href="{% url 'events:register' activity.id %}" class="btn btn-primary mt-1 stretched-link">Meld deg på</a>
-    {% endif %}
+{% if activity.cancelled %}
+    <a href="#" class="btn btn-outline-secondary disabled" aria-disabled="true">Arrangementet er kansellert</a>
 {% else %}
-    <a href="{% url 'usermanagement:login' %}" class="btn btn-outline-primary stretched-link" role="button">Logg inn for å melde deg på</a>
+    {% if not user.is_anonymous %}
+        {% if user.id == activity.responsible.id %}
+            <a href="#" class="btn btn-outline-secondary disabled" aria-disabled="true">Du er arrangør</a>
+        {% elif not user.profile.NTNUI_medlem and activity.krever_NTNUI_medlemskap %}
+            <a href="#" class="btn btn-outline-secondary disabled" aria-disabled="true"><i class="fas fa-lock"></i> Krever NTNUI-medlemskap </a>
+        {% elif user in activity.registered_users.all %}
+            <a href="{% url 'events:unregister' activity.id %}" class="mt-1 stretched-link unreg_button">
+                <span class="btn btn-danger position-absolute w-100 after_button">Meld av</span>
+                <span class="btn btn-secondary w-100">Du er påmeldt</span>
+            </a>
+        {% elif activity.max_participants <= activity.registered_users.count %}
+            <a href="#" class="btn btn-outline-secondary disabled" aria-disabled="true">Arrangementet er fullt</a>
+        {% else %}
+            <a href="{% url 'events:register' activity.id %}" class="btn btn-primary mt-1 stretched-link">Meld deg på</a>
+        {% endif %}
+    {% else %}
+        <a href="{% url 'usermanagement:login' %}" class="btn btn-outline-primary stretched-link" role="button">Logg inn for å melde deg på</a>
+    {% endif %}
 {% endif %}

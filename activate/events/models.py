@@ -50,10 +50,10 @@ class Activity(models.Model):
 
     show_email_address = models.BooleanField(verbose_name="vis_e-post", default=False)
     krever_NTNUI_medlemskap = models.BooleanField(default=False)
+    cancelled = models.BooleanField(default=False)  # Is the activity cancelled?
 
     # Overridden objects manager
     objects = ActivityManager()
-
 
     def __str__(self):
         return self.title
