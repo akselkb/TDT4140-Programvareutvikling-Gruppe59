@@ -52,6 +52,17 @@
                         </div>
                     </div>
                     <div class="mb-2">
+                        <strong>Oppmøtested</strong>
+                        <br>
+                        <div class="font-weight-light">
+                            {% if activity.oppmøtested|length == 0 or activity.oppmøtested is None %}
+                                Ta kontakt med arrangør.
+                            {% else %}
+                                {{ activity.oppmøtested }}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="mb-2">
                         <strong>Utstyr</strong>
                         <br>
                         <div class="font-weight-light">
