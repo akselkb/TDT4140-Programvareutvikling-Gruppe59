@@ -55,10 +55,10 @@
                         <strong>Oppmøtested</strong>
                         <br>
                         <div class="font-weight-light">
-                            {% if activity.oppmøtested|length == 0 or activity.oppmøtested is None %}
+                            {% if activity.meeting_place|length == 0 or activity.meeting_place is None %}
                                 Ta kontakt med arrangør.
                             {% else %}
-                                {{ activity.oppmøtested }}
+                                {{ activity.meeting_place }}
                             {% endif %}
                         </div>
                     </div>
