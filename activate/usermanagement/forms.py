@@ -32,8 +32,7 @@ class ProfileUpdateForm(forms.ModelForm):
                                  (years=[x for x in range(1970, datetime.datetime.now().year+1)]),
                                  required=False, help_text='Valgfri.')
     image = forms.ImageField(label='Profilbilde', allow_empty_file=True)
-    NTNUI_medlem = forms.CheckboxInput()
 
     class Meta:
         model = Profile
-        fields = ['birth_date', 'image', 'NTNUI_medlem']
+        fields = ['birth_date', 'image', 'NTNUI_medlem', 'anonymous']

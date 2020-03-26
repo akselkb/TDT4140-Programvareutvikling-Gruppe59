@@ -14,16 +14,20 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>
-            {% if users.all|length == 0 %}
-                Ingen påmeldte brukere
+        {% if users.all|length == 0 %}
+          <p>Ingen påmeldte brukere</p>
+        {% else %}
+          <ul class="list-unstyled">
+          {% for user in users.all %}
+            {% if user.profile.anonymous %}
+              <li class="">Anonym bruker</li>
+            {% else %}
+              <li class="">{{user.first_name}} {{user.last_name}}</li>
             {% endif %}
-            {% for user in users.all %}
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">{{user.first_name}} {{user.last_name}}</li>
-                </ul>
-            {% endfor %}
-        </p>
+          {% endfor %}
+          </ul>
+      {% endif %}
+
       </div>
       <div class="modal-footer">
       </div>

@@ -37,7 +37,7 @@ class CreateActivityForm(forms.ModelForm):
 class FilterForm(forms.Form):
     search = forms.CharField(max_length=255, required=False)
     available = forms.BooleanField(label="Kun ledige", required=False)
-    hide_ntnui = forms.BooleanField(label="Ikke NTNUI", required=False)
+    hide_ntnui = forms.BooleanField(label="Skjul NTNUI-aktiviteter", required=False)
     free = forms.BooleanField(label="Kun gratis", required=False)
 
     helper = FormHelper()
