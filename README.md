@@ -2,21 +2,15 @@
 
 Activate er en webapplikasjon (på bestilling av Sit) som fasiliterer aktiviteter for brukerne. Applikasjonen er myntet på studenter, som kan segregeres i henholdsvis vanlige medlemmer og NTNUI-medlemmer. Som en bruker kan du enkelt både arrangere/opprette arrangementer, samt melde deg på eller av arrangementer. Med hensyn på personvern og brukerpsykologi er applikasjonen også tilrettelagt for stor grad av anonymitet.
 
-## Motivation
+
+## Motivasjon
 
 Motivasjonen bak applikasjonen er at Sit har observert en stadig økende, og korrelerende, tendens av inaktivitet og ensomhet blant unge voksne i Norge. Derfor ønsker de å gjøre et motvirkende tiltak.
 
-## Tech/framework used
 
-<b>Prosjektet ble bygd med:</b>
-- [Python 3.7](https://www.python.org/)
-- [Django 3.0.3](https://www.djangoproject.com/)
-- [SQLite 3](https://www.sqlite.org/index.html)
-- [Bootstrap 4](https://getbootstrap.com/)
+## Tech/rammeverk, code style og testing
 
-## Code style
-
-Sjekk ut (wiki om code style)
+Sjekk ut wikien: [oversikt over kodekvalitet](https://gitlab.stud.idi.ntnu.no/tdt4140-2020/59/-/wikis/Oversikt-over-kodekvalitet)
 
 
 ## Installasjon
@@ -27,6 +21,7 @@ For å komme raskt i gang med å kjøre prosjektet lokalt, er det mulig å kjør
 2. Sørg for at du har installert Docker ([guide](https://docs.docker.com/compose/install/))
 3. Kjør deretter kommandoen `docker-compose up -d` fra prosjektets rotmappe
 4. Du kan deretter besøke Activate-siden på URLen 0.0.0.0:8000 – endringer du gjør i koden vil automatisk lastes inn ("hot reload")
+
 
 ### Uten Docker
 Det er også enkelt å kjøre prosjektet lokalt uten Docker. For å gjøre dette:
@@ -39,29 +34,55 @@ Det er også enkelt å kjøre prosjektet lokalt uten Docker. For å gjøre dette
 5. Du kan nå kjøre kommandoen `python manage.py runserver 8000` og besøke Activate-siden på URLen 127.0.0.1:8000
 
 
-## API Reference
+## Hvordan bruke applikasjonen
 
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
+Sjekk ut wikien: [brukermanual](https://gitlab.stud.idi.ntnu.no/tdt4140-2020/59/-/wikis/Brukermanual)
 
-## Tests
 
-Describe and show how to run the tests with code examples.
+## Medvirkning
 
-## Contribute
+Sjekk ut wikien: [rutiner for evolusjon og endring](https://gitlab.stud.idi.ntnu.no/tdt4140-2020/59/-/wikis/Rutiner-for-evolusjon-og-endring)
 
-Sjekk ut (wiki om evolusjon/endring)
+
+## Veien videre
+
+Sjekk ut wikien: [product roadmap]()
+
 
 ## Credits
 
-Underveis i prosjektet har gruppen brukt en rekke kilder som inspirasjon til hvordan man skal løse problemstillinger i koden. Under følger en liste med de vesentlige inspirasjonskildene vi benyttet:
-- Oppsett av prosjektet
-  - [Django Girls Tutorial](https://tutorial.djangogirls.org/en/)
-- []()
-- []()
-- []()
-- []()
-- User management
-  - [Corey Schafer: Python Django Tutorials](https://www.youtube.com/playlist?list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p)
-## License
+Underveis i prosjektet har gruppen brukt en rekke kilder som inspirasjon til hvordan man skal løse problemstillinger i koden. Under følger en liste med de mest vesentlige inspirasjonskildene vi har benyttet under produksjonen av produktet:
 
-NTNU © [TDT4140 - Gruppe 59](https://gitlab.stud.idi.ntnu.no/tdt4140-2020/59)
+Oppsett av prosjektet:
+- [Django Girls Tutorial](https://tutorial.djangogirls.org/en/)
+
+Som generell støtte:
+- [MDN web docs: Django](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django)
+
+User management:
+- [Corey Schafer: Python Django Tutorials](https://www.youtube.com/playlist?list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p)
+
+
+## Lisens
+
+MIT License
+
+Copyright (c) [2020] [TDT4140 - Gruppe 59](https://gitlab.stud.idi.ntnu.no/tdt4140-2020/59)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
