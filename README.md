@@ -10,7 +10,7 @@ Motivasjonen bak applikasjonen er at Sit har observert en stadig økende, og kor
 
 ## Tech/rammeverk, code style og testing
 
-Sjekk ut wikien: [oversikt over kodekvalitet](https://gitlab.stud.idi.ntnu.no/tdt4140-2020/59/-/wikis/Oversikt-over-kodekvalitet)
+Sjekk ut wikien: [Oversikt over kodekvalitet](https://gitlab.stud.idi.ntnu.no/tdt4140-2020/59/-/wikis/Oversikt-over-kodekvalitet)
 
 
 ## Installasjon
@@ -36,17 +36,17 @@ Det er også enkelt å kjøre prosjektet lokalt uten Docker. For å gjøre dette
 
 ## Hvordan bruke applikasjonen
 
-Sjekk ut wikien: [brukermanual](https://gitlab.stud.idi.ntnu.no/tdt4140-2020/59/-/wikis/Brukermanual)
+Sjekk ut wikien: [Brukermanual](https://gitlab.stud.idi.ntnu.no/tdt4140-2020/59/-/wikis/Brukermanual)
 
 
 ## Medvirkning
 
-Sjekk ut wikien: [rutiner for evolusjon og endring](https://gitlab.stud.idi.ntnu.no/tdt4140-2020/59/-/wikis/Rutiner-for-evolusjon-og-endring)
+Sjekk ut wikien: [Rutiner for evolusjon og endring](https://gitlab.stud.idi.ntnu.no/tdt4140-2020/59/-/wikis/Rutiner-for-evolusjon-og-endring)
 
 
 ## Veien videre
 
-Sjekk ut wikien: [product roadmap]()
+Sjekk ut wikien: [Roadmap for produktet](https://gitlab.stud.idi.ntnu.no/tdt4140-2020/59/-/wikis/Roadmap)
 
 
 ## Credits
