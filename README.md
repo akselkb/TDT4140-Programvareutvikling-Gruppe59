@@ -36,6 +36,17 @@ Det er også enkelt å kjøre prosjektet lokalt uten Docker. For å gjøre dette
 6. Til slutt kan du kjøre kommandoen `python manage.py runserver 8000` og besøke Activate-siden på URLen [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
 
+### Adminrettigheter
+For tilgang til adminpanelet trenger du en bruker med adminrettigheter.
+Naviger til prosjektets rotmappe, `/59/activate/`, og kjør kommandoen:
+
+`python manage.py createsuperuser`
+
+Etter å ha følgt instruksjonene i terminalen og opprettet en adminbruker navigerer du til adminpanelet gjennom URLen [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/). Prosjektet må kjøre for at adminpanelet skal være tilgjengelig, se instruksjoner for dette over.
+
+
+Du kan lese mer om hvordan bruke adminpanelet i [brukermanualen](https://gitlab.stud.idi.ntnu.no/tdt4140-2020/59/-/wikis/Brukermanual#administrasjonspanelet).
+
 ## Hvordan bruke applikasjonen
 
 Sjekk ut wikien: [Brukermanual](https://gitlab.stud.idi.ntnu.no/tdt4140-2020/59/-/wikis/Brukermanual)
