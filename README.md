@@ -21,7 +21,7 @@ For å komme raskt i gang med å kjøre prosjektet lokalt, er det mulig å kjør
 2. Klon prosjektet til din maskin med `git clone https://gitlab.stud.idi.ntnu.no/tdt4140-2020/59.git`
 3. Sørg for at du har installert Docker ([guide](https://docs.docker.com/compose/install/))
 4. Kjør deretter kommandoen `docker-compose up -d` fra prosjektets rotmappe `/59/activate/`
-5. Du kan deretter besøke Activate-siden på URLen [http://127.0.0.1:8000](http://127.0.0.1:8000) – endringer du gjør i koden vil automatisk lastes inn ("hot reload")
+5. Du kan deretter besøke Activate-siden på URLen [http://0.0.0.0:8000](http://0.0.0.0:8000) – endringer du gjør i koden vil automatisk lastes inn, "hot reload". (På Windows kan det skje at en feil ved Docker gjør at den ikke klarer å binde til den oppgitte adressen, da kan du forsøke [127.0.0.1:8000](127.0.0.1:8000) i stedet.)
 
 
 ### Uten Docker
@@ -29,8 +29,8 @@ Det er også enkelt å kjøre prosjektet lokalt uten Docker. For å gjøre dette
 1. Sørg for at Python 3.7 ([guide](https://www.python.org/downloads/)) og Git ([guide](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)) er installert på maskinen
 2. Klon prosjektet til din maskin med `git clone https://gitlab.stud.idi.ntnu.no/tdt4140-2020/59.git`
 3. Lag og aktiver et virtual environment for prosjektet (to alternativer)
-    - Sett opp prosjektet i din favoritt-IDE ([guide for PyCharm](https://www.dev2qa.com/how-to-import-existing-django-project-and-enable-django-support-in-pycharm/))
-    - Opprett et virtual environment kalt f.eks. `sit-activate` i en mappe du velger (for eksempel `.virtualenvs` i hjemmemappen) ved å skrive `python -m venv sit-activate` ([guide for oppretting og aktivering](https://docs.python.org/3/tutorial/venv.html#creating-virtual-environments))
+    - Sett opp prosjektet i din favoritt-IDE med et virtual environment der ([guide for PyCharm](https://www.dev2qa.com/how-to-import-existing-django-project-and-enable-django-support-in-pycharm/))
+    - Opprett et separat virtual environment kalt f.eks. `sit-activate` i en mappe du velger (for eksempel `.virtualenvs` i hjemmemappen) ved å skrive `python -m venv sit-activate` ([guide for oppretting og aktivering](https://docs.python.org/3/tutorial/venv.html#creating-virtual-environments))
 4. Naviger til prosjektets rotmappe, `/59/activate/`, og installer alle avhengigheter med `pip install -r requirements.txt`
 5. For å oppdatere databasen kjør kommandoen `python manage.py migrate`
 6. Til slutt kan du kjøre kommandoen `python manage.py runserver 8000` og besøke Activate-siden på URLen [http://127.0.0.1:8000](http://127.0.0.1:8000)
