@@ -42,7 +42,7 @@ Naviger til prosjektets rotmappe, `/59/activate/`, og kjør kommandoen:
 
 `python manage.py createsuperuser`
 
-Etter å ha følgt instruksjonene i terminalen og opprettet en adminbruker navigerer du til adminpanelet gjennom URLen [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/). Prosjektet må kjøre for at adminpanelet skal være tilgjengelig, se instruksjoner for dette over.
+Etter å ha følgt instruksjonene i terminalen og opprettet en adminbruker navigerer du til adminpanelet gjennom URLen [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/). Webapplikasjonen må kjøre for at adminpanelet skal være tilgjengelig, se instruksjoner for dette over.
 
 
 Du kan lese mer om hvordan bruke adminpanelet i [brukermanualen](https://gitlab.stud.idi.ntnu.no/tdt4140-2020/59/-/wikis/Brukermanual#administrasjonspanelet).
