@@ -32,7 +32,7 @@ Det er også enkelt å kjøre prosjektet lokalt uten Docker. For å gjøre dette
     - Sett opp prosjektet i din favoritt-IDE ([guide for PyCharm](https://www.dev2qa.com/how-to-import-existing-django-project-and-enable-django-support-in-pycharm/))
     - Opprett et virtual environment kalt f.eks. `sit-activate` i en mappe du velger (for eksempel `.virtualenvs` i hjemmemappen) ved å skrive `python -m venv sit-activate` ([guide for oppretting og aktivering](https://docs.python.org/3/tutorial/venv.html#creating-virtual-environments))
 4. Installer alle avhengigheter med `pip install -r requirements.txt`
-5. Du kan nå kjøre kommandoen `python manage.py runserver 8000` og besøke Activate-siden på URLen 127.0.0.1:8000
+5. Du kan nå kjøre kommandoen `python manage.py runserver 8000` og besøke Activate-siden på URLen [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
 
 ## Hvordan bruke applikasjonen
