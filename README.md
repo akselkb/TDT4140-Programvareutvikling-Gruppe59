@@ -21,7 +21,7 @@ For å komme raskt i gang med å kjøre prosjektet lokalt, er det mulig å kjør
 2. Klon prosjektet til din maskin med `git clone https://gitlab.stud.idi.ntnu.no/tdt4140-2020/59.git`
 3. Sørg for at du har installert Docker ([guide](https://docs.docker.com/compose/install/))
 4. Kjør deretter kommandoen `docker-compose up -d` fra prosjektets rotmappe `/59/activate/`
-5. Du kan deretter besøke Activate-siden på URLen [http://0.0.0.0:8000](http://0.0.0.0:8000) – endringer du gjør i koden vil automatisk lastes inn, "hot reload". (På Windows kan det skje at en feil ved Docker gjør at den ikke klarer å binde til den oppgitte adressen, da kan du forsøke [127.0.0.1:8000](127.0.0.1:8000) i stedet.)
+5. Du kan deretter besøke Activate-siden på URLen [0.0.0.0:8000](http://0.0.0.0:8000) – endringer du gjør i koden vil automatisk lastes inn, "hot reload". (På Windows kan det skje at en feil ved Docker gjør at den ikke klarer å binde til den oppgitte adressen, da kan du forsøke [127.0.0.1:8000](http://127.0.0.1:8000) i stedet.)
 
 
 ### Uten Docker
