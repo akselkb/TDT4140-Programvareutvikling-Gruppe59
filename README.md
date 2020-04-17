@@ -78,6 +78,8 @@ User management:
 
 ## Tredjeparts-komponenter og lisensiering
 
+Alle internt utviklede deler av *Activate* er lisensiert med MIT-lisens, se [avsnittet Lisens](https://gitlab.stud.idi.ntnu.no/tdt4140-2020/59/-/tree/master#lisens) for selve lisensen. Informasjon om lisensene til de ekstern vedlikeholdte bibliotekene brukt i *Activate* kan sees i neste avsnitt.
+
 ### Eksterne bibliotek brukt i *Activate*
 
 | Bibliotek | Beskrvelse | Kilde |
@@ -92,10 +94,7 @@ User management:
 
 ### Lisens
 
-
-Alle internt utviklede deler av *Activate* bruker MIT License ©
-
-Copyright (c) [2020] [TDT4140 - Gruppe 59](https://gitlab.stud.idi.ntnu.no/tdt4140-2020/59)
+Copyright © 2020 [TDT4140 - Gruppe 59](https://gitlab.stud.idi.ntnu.no/tdt4140-2020/59)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
