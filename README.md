@@ -76,9 +76,24 @@ User management:
 - [Corey Schafer: Python Django Tutorials](https://www.youtube.com/playlist?list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p)
 
 
-## Lisens
+## Tredjeparts-komponenter og lisensiering
 
-MIT License
+### Eksterne bibliotek brukt i *Activate*
+
+| Bibliotek | Beskrvelse | Kilde |
+| ------ | ------ | ------ |
+| Django | Web-rammeverk for Python | [BSD License 2.0](https://raw.githubusercontent.com/django/django/master/LICENSE) |
+| Pillow | Fil-håndtering i Pyhton | [PIL license](https://raw.githubusercontent.com/python-pillow/Pillow/master/LICENSE)  |
+| Bootstrap | CSS-rammeverk | [MIT](https://raw.githubusercontent.com/twbs/bootstrap/v4.0.0/LICENSE) |
+| Django-crispy-forms | Skjemaformaterings-vertøy for Django | [MIT](https://github.com/django-crispy-forms/django-crispy-forms/blob/master/crispy_forms/LICENSE) |
+| Pylint | Kodekvalitets-verktøy | [GNU v2.0](https://github.com/PyCQA/pylint/blob/master/COPYING) |
+| Font Awesome | Bibliotek for ikoner | [CC BY 4.0](https://github.com/FortAwesome/Font-Awesome/blob/master/LICENSE.txt)
+
+
+### Lisens
+
+
+Alle internt utviklede deler av *Activate* bruker MIT License ©
 
 Copyright (c) [2020] [TDT4140 - Gruppe 59](https://gitlab.stud.idi.ntnu.no/tdt4140-2020/59)
 
