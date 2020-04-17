@@ -12,13 +12,15 @@ from .models import Activity
 
 
 def activity_list(request):
+    """Returns activities based on request filters"""
+    # Start by returning all activities
     activities = Activity.objects.all()
     filter_form = FilterForm(request.GET or None)
 
     search_query = ''
     filter_query = Q()
 
-    # Shows only upcoming activities
+    # Filter only upcoming activities
     filter_query &= Q(date__gte=datetime.date.today())
 
     if filter_form.is_bound and filter_form.is_valid():
@@ -26,8 +28,8 @@ def activity_list(request):
         search_query = filters.get("search")
         if search_query:
             filter_query &= (
-                    Q(title__icontains=search_query) |
-                    Q(text__icontains=search_query)
+                Q(title__icontains=search_query) |
+                Q(text__icontains=search_query)
             )
         if filters.get("available"):
             filter_query &= (
@@ -52,6 +54,7 @@ def activity_list(request):
 
 
 def create_activity(request):
+    """Create activity"""
     # User is rejected if they are not logged in
     if request.user is None or request.user.is_anonymous:
         return activity_list(request)
@@ -63,7 +66,6 @@ def create_activity(request):
             activity.responsible = request.user  # Add the currently logged in user as 'responsible' for this activity
             activity.save()  # Save the activity to the database
 
-            # TODO : We should probably redirect to the detailed activity page when successfully creating an activity
             return redirect('/' + str(activity.id))  # Redirects to the home page
     else:
         form = CreateActivityForm()
@@ -98,12 +100,14 @@ def email_activity_cancellation(activity, user):
 
 
 def activity_detail_view(request, id):
+    """Returns detailed activity view"""
     activity = Activity.objects.get(id=id)  # Gets right activity
     date = datetime.date.today()
     return render(request, 'events/activity_detail_view.html', {'activity': activity, 'date': date})
 
 
 def register(request, activity_id):
+    """Register for an activity"""
     activity = get_object_or_404(Activity, id=activity_id)
 
     if activity.max_participants is None or activity.registered_users.count() <= activity.max_participants:
@@ -116,6 +120,7 @@ def register(request, activity_id):
 
 
 def unregister(request, activity_id):
+    """Deregister from an activity"""
     activity = get_object_or_404(Activity, id=activity_id)
 
     activity.registered_users.remove(request.user.id)
@@ -126,6 +131,7 @@ def unregister(request, activity_id):
 
 @login_required
 def organized_activities_view(request):
+    """Returns list of all activities you are arranging, participating in, have arranged or have participated in"""
     arranged_activities = Activity.objects.filter(responsible=request.user).filter(date__gte=datetime.date.today())
     upcoming_activities = Activity.objects.filter(registered_users=request.user).filter(date__gte=datetime.date.today())
     earlier_arranged_activities = Activity.objects.filter(responsible=request.user).filter(date__lte=datetime.date.today())

@@ -1,9 +1,8 @@
 import datetime
 
-from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
-from django.db.models import F, Count, ExpressionWrapper, Case, When, Value, BooleanField, IntegerField
+from django.db.models import F, Count, Case, When, Value, BooleanField
 from django.utils import timezone
 
 

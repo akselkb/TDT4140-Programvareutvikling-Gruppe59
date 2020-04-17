@@ -1,8 +1,8 @@
+import datetime
 from crispy_forms.bootstrap import FieldWithButtons, StrictButton
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Field, Div
 from django import forms
-import datetime
 
 from .models import Activity
 
@@ -25,8 +25,8 @@ class CreateActivityForm(forms.ModelForm):
     show_email_address = forms.BooleanField(label='Vis e-post',
                                             required=False,
                                             help_text='Vis e-postadresse slik at deltakere kan ta kontakt.')
+    # This name is in norwegian because it shows on the form. '_' are replaced with ' '.
     krever_NTNUI_medlemskap = forms.CheckboxInput()
-
 
     class Meta:
         model = Activity
@@ -63,5 +63,3 @@ class FilterForm(forms.Form):
         ),
         StrictButton('Søk', value='submit', type='submit', css_class='btn-primary')
     )
-
-

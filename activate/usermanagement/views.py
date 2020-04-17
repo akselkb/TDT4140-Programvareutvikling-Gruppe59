@@ -5,6 +5,7 @@ from .forms import SignUpForm, UserUpdateForm, ProfileUpdateForm
 
 
 def signup(request):
+    """Render/Signup user"""
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
@@ -21,6 +22,7 @@ def signup(request):
 
 @login_required
 def profile(request):
+    """Render/Update user profile"""
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, instance=request.user)
         p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
