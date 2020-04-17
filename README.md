@@ -33,7 +33,7 @@ Det er også enkelt å kjøre prosjektet lokalt uten Docker. For å gjøre dette
     - Opprett et separat virtual environment kalt f.eks. `sit-activate` i en mappe du velger (for eksempel `.virtualenvs` i hjemmemappen) ved å skrive `python -m venv sit-activate` ([guide for oppretting og aktivering](https://docs.python.org/3/tutorial/venv.html#creating-virtual-environments))
 4. Naviger til prosjektets rotmappe, `/59/activate/`, og installer alle avhengigheter med `pip install -r requirements.txt`
 5. For å oppdatere databasen kjør kommandoen `python manage.py migrate`
-6. Til slutt kan du kjøre kommandoen `python manage.py runserver 8000` og besøke Activate-siden på URLen [http://127.0.0.1:8000](http://127.0.0.1:8000)
+6. Til slutt kan du kjøre kommandoen `python manage.py runserver 8000` og besøke Activate-siden på URLen [127.0.0.1:8000](http://127.0.0.1:8000)
 
 
 ### Adminrettigheter
@@ -42,7 +42,7 @@ Naviger til prosjektets rotmappe, `/59/activate/`, og kjør kommandoen:
 
 `python manage.py createsuperuser`
 
-Etter å ha følgt instruksjonene i terminalen og opprettet en adminbruker navigerer du til adminpanelet gjennom URLen [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/). Webapplikasjonen må kjøre for at adminpanelet skal være tilgjengelig, se instruksjoner for dette over.
+Etter å ha følgt instruksjonene i terminalen og opprettet en adminbruker navigerer du til adminpanelet gjennom URLen [127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/). Webapplikasjonen må kjøre for at adminpanelet skal være tilgjengelig, se instruksjoner for dette over.
 
 
 Du kan lese mer om hvordan bruke adminpanelet i [brukermanualen](https://gitlab.stud.idi.ntnu.no/tdt4140-2020/59/-/wikis/Brukermanual#administrasjonspanelet).
