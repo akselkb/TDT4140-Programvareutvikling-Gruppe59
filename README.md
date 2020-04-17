@@ -20,8 +20,8 @@ For å komme raskt i gang med å kjøre prosjektet lokalt, er det mulig å kjør
 1. Sørg for at du har installert Git ([guide](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git))
 2. Klon prosjektet til din maskin med `git clone https://gitlab.stud.idi.ntnu.no/tdt4140-2020/59.git`
 3. Sørg for at du har installert Docker ([guide](https://docs.docker.com/compose/install/))
-4. Kjør deretter kommandoen `docker-compose up -d` fra prosjektets rotmappe
-5. Du kan deretter besøke Activate-siden på URLen 0.0.0.0:8000 – endringer du gjør i koden vil automatisk lastes inn ("hot reload")
+4. Kjør deretter kommandoen `docker-compose up -d` fra prosjektets rotmappe ("/59/activate/")
+5. Du kan deretter besøke Activate-siden på URLen [localhost:8000](localhost:8000) – endringer du gjør i koden vil automatisk lastes inn ("hot reload")
 
 
 ### Uten Docker
